@@ -1,5 +1,5 @@
-localStorage.Background='black';
-localStorage.Colour='white';
+localStorage.Background;
+localStorage.Colour;
 localStorage.Page;
 localStorage.volBar= 0;
 localStorage.drop = 0;
@@ -88,6 +88,10 @@ localStorage.Muted;
 	
 
 function setColour(){
+	if (localStorage.Background == null)
+	{
+		Mac();
+	}
 	// Font and Background Colours
 	document.body.style.backgroundColor = localStorage.Background;
 	document.body.style.color = localStorage.Colour;
