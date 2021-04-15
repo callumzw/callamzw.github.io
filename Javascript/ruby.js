@@ -1,5 +1,5 @@
-localStorage.Background;
-localStorage.Colour;
+localStorage.Background='black';
+localStorage.Colour='white';
 localStorage.Page;
 localStorage.volBar= 0;
 localStorage.drop = 0;
