@@ -168,6 +168,10 @@ function setColour(){
 		}
 }
 
+function Email(){
+			window.open('mailto:40447724@live.napier.ac.uk')
+}
+
 function music(){
 	var x = document.getElementById("audio");
 	var slider = document.getElementById("range");
@@ -304,6 +308,7 @@ function pageThree(){
 	document.getElementsByClassName('choice')[1].style.display= null;
 	document.getElementsByClassName('choice')[1].innerHTML= "Explore Deck";
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageFive()");
+	document.getElementsByClassName('choice')[2].style.display= null;
 	document.getElementsByClassName('choice')[2].innerHTML= "Explore Below Deck";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour()");
 	document.getElementById('backward').setAttribute("onclick", "pageTwo()");
@@ -312,7 +317,7 @@ function pageFour(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his keadh from the lower leve; and calls you over";
+	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his head from the lower level and calls you over";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix()");
 	document.getElementsByClassName('choice')[1].style.display= "none";
