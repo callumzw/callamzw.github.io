@@ -169,7 +169,7 @@ function setColour(){
 }
 
 function Email(){
-			window.open('mailto:40447724@live.napier.ac.uk')
+			window.open('mailto:rubyrod.game@gmail.com')
 }
 
 function music(){
