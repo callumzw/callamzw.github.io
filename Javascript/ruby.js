@@ -252,23 +252,44 @@ function LoadPage(){
 			}
 }
 
-function AudioSelect(y){
+function LogIn(){
+
+}
+function Register(){
+
+}
+
+function Continue(){
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = "";
 	document.getElementById('image').style.display= "none";
 	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
+	document.getElementsByClassName('choice')[0].innerHTML= "Continue";
+	document.getElementsByClassName('choice')[1].style.display= null;
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
+	document.getElementsByClassName('choice')[1].innerHTML= "New Game";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "AudioSelect(1);");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+}
+function AudioSelect(y){
+	document.getElementById('heading').innerHTML = "</br>";
+	document.getElementById('cover').innerHTML = "</br>";
+	document.getElementById('image').style.display= "none";
+	document.getElementById('restart').style.display= "none";
+	document.getElementById("mainText").innerHTML = "</br>";
 	document.getElementsByClassName('choice')[0].innerHTML= "Audio";
 	document.getElementsByClassName('choice')[1].style.display= null;
 	document.getElementsByClassName('choice')[1].innerHTML= "No Audio";
 	switch (y){
 		case 0:
-			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,0)");
-			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,0)");
+			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,0);");
+			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,0);");
 			break;
 		case 1:
-			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,1)");
-			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,1)");
+			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,1);");
+			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,1);");
 			break;
 	}
 	document.getElementsByClassName('choice')[2].style.display= "none";
@@ -295,7 +316,10 @@ function start(x,y){
 
 	switch (y)
 	{
-		case 0: loadPage(); break;
+		case 0:
+			if (localStorage.Page == null){localStorage.Page = 0;}
+			loadPage();
+			break;
 		case 1: frontPage(); break;
 	}
 }
@@ -307,7 +331,7 @@ function frontPage(){
 	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageOne()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageOne();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
@@ -322,11 +346,11 @@ function pageOne(){
 	document.getElementById('image').src= "../images/obra.png";
 	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Johnathon Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageTwo()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageTwo();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "frontPage()");
+	document.getElementById('backward').setAttribute("onclick", "frontPage();");
 	localStorage.Page=1;
 }
 
@@ -336,11 +360,11 @@ function pageTwo(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The sea is calm and the breeze is warm, the Bos'n approaches you and puts his arm around you. He gives you a warm greeting and tells you to report to the Head Cook";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageThree()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageThree();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageOne()");
+	document.getElementById('backward').setAttribute("onclick", "pageOne();");
 }
 
 function pageThree(){
@@ -349,14 +373,15 @@ function pageThree(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You steady yourself and take in your surroundings, you wonder whether to explore first or meet with the Head Cook first";
 	document.getElementsByClassName('choice')[0].innerHTML= "Explore Quarterdeck";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix();");
 	document.getElementsByClassName('choice')[1].style.display= null;
 	document.getElementsByClassName('choice')[1].innerHTML= "Explore Deck";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageFive()");
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageFive();");
 	document.getElementsByClassName('choice')[2].style.display= null;
 	document.getElementsByClassName('choice')[2].innerHTML= "Explore Below Deck";
-	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour()");
-	document.getElementById('backward').setAttribute("onclick", "pageTwo()");
+	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
 	localStorage.Page=3;
 }
 function pageFour(){
@@ -365,9 +390,11 @@ function pageFour(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his head from the lower level and calls you over";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageThree()");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.Page=4;
 }
 function pageFive(){
@@ -376,9 +403,11 @@ function pageFive(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The top deck is busy with seamen moving supplies below and tightening ropes above";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageFour()");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageFour();");
 	localStorage.Page=5;
 }
 
@@ -388,11 +417,13 @@ function pageSix(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The Quarterdeck is as busy as the top deck, but as you stand gazing the Bos'n spots you and shouts:</br> Oi boy didn I tell you to see the Cook?";
 	document.getElementsByClassName('choice')[0].innerHTML= "Run Below Deck";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSeven()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSeven();");
 	document.getElementsByClassName('choice')[1].style.display= null;
 	document.getElementsByClassName('choice')[1].innerHTML= "Rudely Brush off Bos'n";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageEight()");
-	document.getElementById('backward').setAttribute("onclick", "pageFour()");
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageEight();");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageFour();");
 }
 
 function pageSeven(){
@@ -401,9 +432,11 @@ function pageSeven(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "Sorry Sir, you say as you run down below";
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour()");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageSix()");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageSix();");
 }
 
 function pageEight(){
@@ -414,7 +447,9 @@ function pageEight(){
 		" The Bos'n socks you in the face and you pass out, you wake up in the harbour with the ship away in the distant </br> This is the end of your adventure, my friend. ";
 	document.getElementsByClassName('choice')[0].style.display = "none";
 	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageSix()");
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+	document.getElementById('backward').setAttribute("onclick", "pageSix();");
 }
 
 	
