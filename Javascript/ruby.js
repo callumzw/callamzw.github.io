@@ -236,8 +236,46 @@ function back(){
 	window.history.back();
 }
 
+function LoadPage(){
+			var x = localStorage.Page;
+			switch (x){
+				case 0: frontPage();
+				case 1: pageOne();
+				case 2: pageTwo();
+				case 3: pageThree();
+				case 4: pageFour();
+				case 5: pageFive();
+				case 6: pageSix();
+				case 7: pageSeven();
+				case 8: pageEight();
+				case 9: pageNine();
+			}
+}
 
-function start(x){
+function AudioSelect(y){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = "";
+	document.getElementById('image').style.display= "none";
+	document.getElementById('restart').style.display= "none";
+	document.getElementById("mainText").innerHTML = "";
+	document.getElementsByClassName('choice')[0].innerHTML= "Audio";
+	document.getElementsByClassName('choice')[1].style.display= null;
+	document.getElementsByClassName('choice')[1].innerHTML= "No Audio";
+	switch (y){
+		case 0:
+			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,0)");
+			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,0)");
+			break;
+		case 1:
+			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,1)");
+			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,1)");
+			break;
+	}
+	document.getElementsByClassName('choice')[2].style.display= "none";
+	document.getElementsByClassName('choice')[3].style.display= "none";
+}
+
+function start(x,y){
 	var m = document.getElementById("audio");
 	var slider = document.getElementById("range");
 	m.loop = true;
@@ -254,7 +292,12 @@ function start(x){
 		slider.value = 50;
 		break;
 	}
-	frontPage();
+
+	switch (y)
+	{
+		case 0: loadPage(); break;
+		case 1: frontPage(); break;
+	}
 }
 
 function frontPage(){
@@ -268,6 +311,7 @@ function frontPage(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
+	localStorage.Page = 0;
 }
 
 function pageOne(){
@@ -283,6 +327,7 @@ function pageOne(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "frontPage()");
+	localStorage.Page=1;
 }
 
 function pageTwo(){
@@ -312,6 +357,7 @@ function pageThree(){
 	document.getElementsByClassName('choice')[2].innerHTML= "Explore Below Deck";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour()");
 	document.getElementById('backward').setAttribute("onclick", "pageTwo()");
+	localStorage.Page=3;
 }
 function pageFour(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -322,6 +368,7 @@ function pageFour(){
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix()");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree()");
+	localStorage.Page=4;
 }
 function pageFive(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -332,6 +379,7 @@ function pageFive(){
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour()");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageFour()");
+	localStorage.Page=5;
 }
 
 function pageSix(){
