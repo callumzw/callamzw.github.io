@@ -407,7 +407,7 @@ function pageFive(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageFour();");
+	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.setItem("Page", 5);
 }
 
@@ -423,7 +423,7 @@ function pageSix(){
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageEight();");
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageFour();");
+	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.setItem("Page", 6);
 }
 
