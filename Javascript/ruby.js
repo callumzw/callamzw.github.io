@@ -260,6 +260,8 @@ function LogCheck(){
 
 
 function LogIn(){
+	var user = document.getElementById("username").value;
+	var pass = document.getElementById("password").value;
 			localStorage.Log = 1;
 
 }
@@ -267,6 +269,8 @@ function Logout(){
 	localStorage.Log = 0;
 }
 function Register(){
+			var user = document.getElementById("username").value;
+			var pass = document.getElementById("password").value;
 
 }
 
