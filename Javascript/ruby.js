@@ -301,10 +301,7 @@ function start(x,y){
 
 	switch (y)
 	{
-		case 0:
-			if (localStorage.Page == null){localStorage.setItem("Page", 0)}
-			LoadPage();
-			break;
+		case 0: LoadPage(); break;
 		case 1: frontPage(); break;
 	}
 }
@@ -322,6 +319,7 @@ function LoadPage(){
 		case 7: pageSeven(); break;
 		case 8: pageEight(); break;
 		case 9: pageNine(); break;
+		default: frontPage(); break;
 	}
 }
 
