@@ -167,6 +167,13 @@ function setColour(){
 			x[i].style.color = localStorage.Colour;
 			}
 		}
+	if (document.getElementsByClassName("SignIn")){
+		x = document.getElementsByClassName("SignIn")
+		for (i = 0; i < x.length; i++) {
+			x[i].style.backgroundColor = localStorage.Background;
+			x[i].style.borderColor = localStorage.Colour;
+		}
+	}
 }
 
 function Email(){

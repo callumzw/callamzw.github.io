@@ -83,7 +83,6 @@ height:52px;
   width: 15px;
   height: 15px;
   border-radius: 100px;
-  background: var(--slider-thumb);
   //box-shadow: -108px 0 0 100px;
 }
 
@@ -97,7 +96,7 @@ height:52px;
 #home{
 position: absolute;
 left: 5px; top: 7px;
-width:48x;
+width:48px;
 height:52px;
 }
 #home:hover{transform: scale(1.1);}
@@ -161,22 +160,21 @@ nav{text-align: center;}
   width:700px;
   height:394px;
   }
-  
-  input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
 
 input[type=submit] {
 
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
+}
+
+input[type=text], input[type=password] {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
 }
   
