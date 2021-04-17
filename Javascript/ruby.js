@@ -317,7 +317,7 @@ function start(x,y){
 	switch (y)
 	{
 		case 0:
-			if (localStorage.Page == null){localStorage.Page = 0;}
+			if (localStorage.Page == null){localStorage.setItem("Page", 0)}
 			LoadPage();
 			break;
 		case 1: frontPage(); break;
@@ -335,7 +335,7 @@ function frontPage(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.Page = 0;
+	localStorage.setItem("Page", 0);
 }
 
 function pageOne(){
@@ -351,7 +351,7 @@ function pageOne(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "frontPage();");
-	localStorage.Page=1;
+	localStorage.setItem("Page", 1);
 }
 
 function pageTwo(){
@@ -365,6 +365,7 @@ function pageTwo(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageOne();");
+	localStorage.setItem("Page", 2);
 }
 
 function pageThree(){
@@ -382,7 +383,7 @@ function pageThree(){
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
-	localStorage.Page=3;
+	localStorage.setItem("Page", 3);
 }
 function pageFour(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -395,7 +396,7 @@ function pageFour(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
-	localStorage.Page=4;
+	localStorage.setItem("Page", 4);
 }
 function pageFive(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -408,7 +409,7 @@ function pageFive(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageFour();");
-	localStorage.Page=5;
+	localStorage.setItem("Page", 5);
 }
 
 function pageSix(){
@@ -424,6 +425,7 @@ function pageSix(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageFour();");
+	localStorage.setItem("Page", 6);
 }
 
 function pageSeven(){
@@ -437,6 +439,7 @@ function pageSeven(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
+	localStorage.setItem("Page", 7);
 }
 
 function pageEight(){
@@ -450,6 +453,7 @@ function pageEight(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
+	localStorage.setItem("Page", 8);
 }
 
 	
