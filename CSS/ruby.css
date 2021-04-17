@@ -160,13 +160,16 @@ nav{text-align: center;}
   width:700px;
   height:394px;
   }
-
+label{
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
 
 input[type=text], input[type=password] {
     font-family: Georgia, serif;
     font-weight: normal;
-    width: 100%;
-    padding: 15px;
+    width: 50%;
+    padding: 10px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
