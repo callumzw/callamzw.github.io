@@ -236,21 +236,6 @@ function back(){
 	window.history.back();
 }
 
-function LoadPage(){
-			var x = localStorage.getItem("Page");
-			switch (x){
-				case 0: frontPage(); break;
-				case 1: pageOne(); break;
-				case 2: pageTwo(); break;
-				case 3: pageThree(); break;
-				case 4: pageFour(); break;
-				case 5: pageFive(); break;
-				case 6: pageSix(); break;
-				case 7: pageSeven(); break;
-				case 8: pageEight(); break;
-				case 9: pageNine(); break;
-			}
-}
 
 function LogIn(){
 
@@ -321,6 +306,22 @@ function start(x,y){
 			LoadPage();
 			break;
 		case 1: frontPage(); break;
+	}
+}
+
+function LoadPage(){
+	var x = parseInt(localStorage.Page);
+	switch (x){
+		case 0: frontPage(); break;
+		case 1: pageOne(); break;
+		case 2: pageTwo(); break;
+		case 3: pageThree(); break;
+		case 4: pageFour(); break;
+		case 5: pageFive(); break;
+		case 6: pageSix(); break;
+		case 7: pageSeven(); break;
+		case 8: pageEight(); break;
+		case 9: pageNine(); break;
 	}
 }
 
