@@ -318,7 +318,7 @@ function start(x,y){
 	{
 		case 0:
 			if (localStorage.Page == null){localStorage.Page = 0;}
-			loadPage();
+			LoadPage();
 			break;
 		case 1: frontPage(); break;
 	}
