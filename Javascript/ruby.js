@@ -237,18 +237,18 @@ function back(){
 }
 
 function LoadPage(){
-			var x = localStorage.Page;
+			var x = localStorage.getItem("Page");
 			switch (x){
-				case 0: frontPage();
-				case 1: pageOne();
-				case 2: pageTwo();
-				case 3: pageThree();
-				case 4: pageFour();
-				case 5: pageFive();
-				case 6: pageSix();
-				case 7: pageSeven();
-				case 8: pageEight();
-				case 9: pageNine();
+				case 0: frontPage(); break;
+				case 1: pageOne(); break;
+				case 2: pageTwo(); break;
+				case 3: pageThree(); break;
+				case 4: pageFour(); break;
+				case 5: pageFive(); break;
+				case 6: pageSix(); break;
+				case 7: pageSeven(); break;
+				case 8: pageEight(); break;
+				case 9: pageNine(); break;
 			}
 }
 
