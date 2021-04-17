@@ -1,6 +1,7 @@
 localStorage.Background;
 localStorage.Colour;
 localStorage.Page;
+localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
 localStorage.mute = 0;
@@ -236,27 +237,51 @@ function back(){
 	window.history.back();
 }
 
+function LogCheck(){
+			if (localStorage.Log == null){localStorage.Log = 0;}
+			if (localStorage.Log == 0)
+			{
+				document.getElementById("Log").innerHTML = "Log In";
+				document.getElementById("Log").href = "Log In/Log In.html";
+			}
+			if (localStorage.Log == 1)
+			{
+				document.getElementById("Log").innerHTML = "Log Out";
+				document.getElementById("Log").href = "Log In/Logout.html";
+			}
+}
+
 
 function LogIn(){
+			localStorage.Log = 1;
 
+}
+function Logout(){
+	localStorage.Log = 0;
 }
 function Register(){
 
 }
 
 function Continue(){
-	document.getElementById('heading').innerHTML = "";
-	document.getElementById('cover').innerHTML = "";
-	document.getElementById('image').style.display= "none";
-	document.getElementById('restart').style.display= "none";
-	document.getElementById("mainText").innerHTML = "";
-	document.getElementsByClassName('choice')[0].innerHTML= "Continue";
-	document.getElementsByClassName('choice')[1].style.display= null;
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
-	document.getElementsByClassName('choice')[1].innerHTML= "New Game";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "AudioSelect(1);");
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
+	if (localStorage.Log == 0){
+		AudioSelect(1);
+	}
+	else {
+		document.getElementById('heading').innerHTML = "";
+		document.getElementById('cover').innerHTML = "";
+		document.getElementById('image').style.display = "none";
+		document.getElementById('restart').style.display = "none";
+		document.getElementById("mainText").innerHTML = "";
+		document.getElementsByClassName('choice')[0].style.display = null;
+		document.getElementsByClassName('choice')[0].innerHTML = "Continue";
+		document.getElementsByClassName('choice')[1].style.display = null;
+		document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
+		document.getElementsByClassName('choice')[1].innerHTML = "New Game";
+		document.getElementsByClassName('choice')[1].setAttribute("onclick", "AudioSelect(1);");
+		document.getElementsByClassName('choice')[2].style.display = "none";
+		document.getElementsByClassName('choice')[3].style.display = "none";
+	}
 }
 function AudioSelect(y){
 	document.getElementById('heading').innerHTML = "</br>";
