@@ -329,6 +329,7 @@ function frontPage(){
 	document.getElementById('image').style.display= "none";
 	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageOne();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
@@ -344,6 +345,7 @@ function pageOne(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').src= "../images/obra.png";
 	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Johnathon Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageTwo();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
@@ -358,6 +360,7 @@ function pageTwo(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The sea is calm and the breeze is warm, the Bos'n approaches you and puts his arm around you. He gives you a warm greeting and tells you to report to the Head Cook";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageThree();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
@@ -372,6 +375,7 @@ function pageThree(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You steady yourself and take in your surroundings, you wonder whether to explore first or meet with the Head Cook first";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Explore Quarterdeck";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix();");
 	document.getElementsByClassName('choice')[1].style.display= null;
@@ -389,8 +393,9 @@ function pageFour(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his head from the lower level and calls you over";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix();");
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageNine();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
@@ -402,6 +407,7 @@ function pageFive(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The top deck is busy with seamen moving supplies below and tightening ropes above";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
@@ -416,6 +422,7 @@ function pageSix(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The Quarterdeck is as busy as the top deck, but as you stand gazing the Bos'n spots you and shouts:</br> Oi boy didn I tell you to see the Cook?";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Run Below Deck";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSeven();");
 	document.getElementsByClassName('choice')[1].style.display= null;
@@ -432,6 +439,7 @@ function pageSeven(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "Sorry Sir, you say as you run down below";
+	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
