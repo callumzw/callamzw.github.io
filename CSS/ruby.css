@@ -176,6 +176,6 @@ input[type=text], input[type=password] {
     padding: 10px;
     margin: 5px 0 22px 0;
     display: inline-block;
-    border: none;
+    border: solid 3px;
 }
   
