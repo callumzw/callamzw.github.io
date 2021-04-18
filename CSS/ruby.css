@@ -77,13 +77,17 @@ height:52px;
   cursor: crosshair;
   overflow: hidden;
 }
+:root{
+    --slider-thumb:white;
+}
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 100px;
-  //box-shadow: -108px 0 0 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    background: var(--slider-thumb);
+    box-shadow: -108px 0 0 100px;
 }
 
 .slider::-moz-range-thumb {
