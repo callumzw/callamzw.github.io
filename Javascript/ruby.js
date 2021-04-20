@@ -245,16 +245,19 @@ function back(){
 }
 
 function LogCheck(){
-			if (localStorage.Log == null){localStorage.Log = 0;}
 			if (localStorage.Log == 0)
 			{
 				document.getElementById("Log").innerHTML = "Log In";
 				document.getElementById("Log").href = "Log In/Log In.html";
 			}
-			if (localStorage.Log == 1)
+			else if (localStorage.Log == 1)
 			{
 				document.getElementById("Log").innerHTML = "Log Out";
 				document.getElementById("Log").href = "Log In/Logout.html";
+			}
+			else {
+				document.getElementById("Log").innerHTML = "Error";
+				document.getElementById("Log").href = "Log In/Log In.html";
 			}
 }
 
