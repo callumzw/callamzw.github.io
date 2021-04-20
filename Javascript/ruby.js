@@ -261,8 +261,8 @@ function LogCheck(){
 
 function LogIn(){
 	localStorage.setItem(Log, 1);
-	var user = document.getElementById("username").value;
-	var pass = document.getElementById("password").value;
+	//var user = document.getElementById("username").value;
+	//var pass = document.getElementById("password").value;
 
 
 }
