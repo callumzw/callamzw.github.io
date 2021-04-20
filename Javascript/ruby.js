@@ -177,7 +177,7 @@ function setColour(){
 }
 
 function Email(){
-			window.open('mailto:rubyrod.game@gmail.com')
+			window.open('mailto:baboonisland.game@gmail.com')
 }
 
 function music(){
