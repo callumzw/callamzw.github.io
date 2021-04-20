@@ -279,6 +279,9 @@ function Register(){
 }
 
 function Continue(){
+			if (localStorage.Page == 0 || localStorage.Page == null){
+				AudioSelect(1);
+			}
 		document.getElementById('heading').innerHTML = "";
 		document.getElementById('cover').innerHTML = "";
 		document.getElementById('image').style.display = "none";
