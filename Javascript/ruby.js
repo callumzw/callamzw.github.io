@@ -282,11 +282,11 @@ function Continue(){
 			if (localStorage.Page == 0 || localStorage.Page == null){
 				AudioSelect(1);
 			}
-		document.getElementById('heading').innerHTML = "";
-		document.getElementById('cover').innerHTML = "";
+		document.getElementById('heading').innerHTML = "</br>";
+		document.getElementById('cover').innerHTML = "</br>";
 		document.getElementById('image').style.display = "none";
 		document.getElementById('restart').style.display = "none";
-		document.getElementById("mainText").innerHTML = "";
+		document.getElementById("mainText").innerHTML = "</br>";
 		document.getElementsByClassName('choice')[0].style.display = null;
 		document.getElementsByClassName('choice')[0].innerHTML = "Continue";
 		document.getElementsByClassName('choice')[1].style.display = null;
