@@ -390,6 +390,7 @@ function frontPage(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
+	localStorage.setItem("Page", 0);
 }
 
 function pageOne(){
@@ -405,6 +406,7 @@ function pageOne(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "frontPage();");
+	localStorage.setItem("Page", 1);
 }
 
 function pageTwo(){
@@ -419,6 +421,7 @@ function pageTwo(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageOne();");
+	localStorage.setItem("Page", 2);
 }
 
 function pageThree(){
@@ -437,6 +440,7 @@ function pageThree(){
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
+	localStorage.setItem("Page", 3);
 }
 function pageFour(){
 	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
@@ -450,6 +454,7 @@ function pageFour(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
+	localStorage.setItem("Page", 4);
 }
 function pageFive(){
 	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
@@ -463,6 +468,7 @@ function pageFive(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
+	localStorage.setItem("Page", 5);
 }
 
 function pageSix(){
@@ -479,6 +485,7 @@ function pageSix(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
+	localStorage.setItem("Page", 6);
 }
 
 function pageSeven(){
@@ -493,6 +500,7 @@ function pageSeven(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
+	localStorage.setItem("Page", 7);
 }
 
 function pageEight(){
@@ -506,6 +514,7 @@ function pageEight(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
+	localStorage.setItem("Page", 8);
 }
 
 	
