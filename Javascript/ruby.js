@@ -393,7 +393,7 @@ function frontPage(){
 }
 
 function pageOne(){
-	document.getElementById('heading').innerHTML = "Epilogue";
+	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('restart').style.display= null;
 	document.getElementById('image').style.display= "none";
@@ -408,7 +408,7 @@ function pageOne(){
 }
 
 function pageTwo(){
-	document.getElementById('heading').innerHTML = "Epilogue";
+	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The sea is calm and the breeze is warm, the Bos'n approaches you and puts his arm around you. He gives you a warm greeting and tells you to report to the Head Cook";
@@ -422,7 +422,7 @@ function pageTwo(){
 }
 
 function pageThree(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You steady yourself and take in your surroundings, you wonder whether to explore first or meet with the Head Cook first";
@@ -439,7 +439,7 @@ function pageThree(){
 	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
 }
 function pageFour(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his head from the lower level and calls you over";
@@ -452,7 +452,7 @@ function pageFour(){
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 }
 function pageFive(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The top deck is busy with seamen moving supplies below and tightening ropes above";
@@ -466,7 +466,7 @@ function pageFive(){
 }
 
 function pageSix(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "The Quarterdeck is as busy as the top deck, but as you stand gazing the Bos'n spots you and shouts:</br> Oi boy didn I tell you to see the Cook?";
@@ -482,7 +482,7 @@ function pageSix(){
 }
 
 function pageSeven(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "Sorry Sir, you say as you run down below";
@@ -496,7 +496,7 @@ function pageSeven(){
 }
 
 function pageEight(){
-	document.getElementById('heading').innerHTML = "Chapter 1";
+	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "Awh fuck off pal, I'll get there when I get there </br> You focking what mate? </br>" +
