@@ -279,7 +279,7 @@ function Register(){
 }
 
 function Continue(){
-			if (localStorage.Page == 0 || localStorage.Page == null){
+			if (localStorage.Page == "0"){
 				AudioSelect(1);
 			}
 		document.getElementById('heading').innerHTML = "</br>";
