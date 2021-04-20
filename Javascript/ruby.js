@@ -263,6 +263,9 @@ function LogIn(){
 	localStorage.setItem("Log", 1);
 	var user = document.getElementById("username").value;
 	var pass = document.getElementById("password").value;
+	var obj = {username: user, password: pass};
+	var userData = JSON.stringify(obj);
+	localStorage.setItem("UserData", userData);
 
 
 }
@@ -276,10 +279,6 @@ function Register(){
 }
 
 function Continue(){
-	if (localStorage.Log == 0){
-		AudioSelect(1);
-	}
-	else {
 		document.getElementById('heading').innerHTML = "";
 		document.getElementById('cover').innerHTML = "";
 		document.getElementById('image').style.display = "none";
@@ -290,10 +289,25 @@ function Continue(){
 		document.getElementsByClassName('choice')[1].style.display = null;
 		document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
 		document.getElementsByClassName('choice')[1].innerHTML = "New Game";
-		document.getElementsByClassName('choice')[1].setAttribute("onclick", "AudioSelect(1);");
+		document.getElementsByClassName('choice')[1].setAttribute("onclick", "ConfirmNew();");
 		document.getElementsByClassName('choice')[2].style.display = "none";
 		document.getElementsByClassName('choice')[3].style.display = "none";
-	}
+}
+function ConfirmNew(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = " Are You Sure?";
+	document.getElementById('image').style.display = "none";
+	document.getElementById('restart').style.display = "none";
+	document.getElementById("mainText").innerHTML = "";
+	document.getElementsByClassName('choice')[0].style.display = null;
+	document.getElementsByClassName('choice')[0].innerHTML = "Yes";
+	document.getElementsByClassName('choice')[1].style.display = null;
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(1);");
+	document.getElementsByClassName('choice')[1].innerHTML = "No";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "Continue();");
+	document.getElementsByClassName('choice')[2].style.display = "none";
+	document.getElementsByClassName('choice')[3].style.display = "none";
+
 }
 function AudioSelect(y){
 	document.getElementById('heading').innerHTML = "</br>";
@@ -373,9 +387,6 @@ function frontPage(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 0);
-	}
 }
 
 function pageOne(){
@@ -391,9 +402,6 @@ function pageOne(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "frontPage();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 1);
-	}
 }
 
 function pageTwo(){
@@ -408,9 +416,6 @@ function pageTwo(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageOne();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 2);
-	}
 }
 
 function pageThree(){
@@ -429,9 +434,6 @@ function pageThree(){
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 3);
-	}
 }
 function pageFour(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -445,9 +447,6 @@ function pageFour(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 4);
-	}
 }
 function pageFive(){
 	document.getElementById('heading').innerHTML = "Chapter 1";
@@ -461,9 +460,6 @@ function pageFive(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 5);
-	}
 }
 
 function pageSix(){
@@ -480,9 +476,6 @@ function pageSix(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageThree();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 6);
-	}
 }
 
 function pageSeven(){
@@ -497,9 +490,6 @@ function pageSeven(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 7);
-	}
 }
 
 function pageEight(){
@@ -513,9 +503,6 @@ function pageEight(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	document.getElementById('backward').setAttribute("onclick", "pageSix();");
-	if (localStorage.Log == 1){
-		localStorage.setItem("Page", 8);
-	}
 }
 
 	
