@@ -245,6 +245,7 @@ function back(){
 }
 
 function LogCheck(){
+			if (localStorage.Log == null){localStorage.Log = 0;}
 			if (localStorage.Log == 0)
 			{
 				document.getElementById("Log").innerHTML = "Log In";
@@ -255,22 +256,18 @@ function LogCheck(){
 				document.getElementById("Log").innerHTML = "Log Out";
 				document.getElementById("Log").href = "Log In/Logout.html";
 			}
-			else {
-				document.getElementById("Log").innerHTML = "Error";
-				document.getElementById("Log").href = "Log In/Log In.html";
-			}
 }
 
 
 function LogIn(){
-	localStorage.setItem(Log, 1);
+	localStorage.setItem("Log", 1);
 	//var user = document.getElementById("username").value;
 	//var pass = document.getElementById("password").value;
 
 
 }
 function Logout(){
-	localStorage.setItem(Log, 0);
+	localStorage.setItem("Log", 0);
 }
 function Register(){
 			var user = document.getElementById("username").value;
