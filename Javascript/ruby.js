@@ -260,13 +260,14 @@ function LogCheck(){
 
 
 function LogIn(){
+	localStorage.setItem(Log, 1);
 	var user = document.getElementById("username").value;
 	var pass = document.getElementById("password").value;
-			localStorage.Log = 1;
+
 
 }
 function Logout(){
-	localStorage.Log = 0;
+	localStorage.setItem(Log, 0);
 }
 function Register(){
 			var user = document.getElementById("username").value;
@@ -362,7 +363,7 @@ function LoadPage(){
 
 function frontPage(){
 	document.getElementById('heading').innerHTML = "";
-	document.getElementById('cover').innerHTML = "<br/><br/> The Tale <br/> of <br/> Ruby Rod <br/>";
+	document.getElementById('cover').innerHTML = "<br/><br/> The Mystery <br/> of <br/> Baboon Island <br/>";
 	document.getElementById('image').style.display= "none";
 	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
@@ -381,9 +382,8 @@ function pageOne(){
 	document.getElementById('heading').innerHTML = "Epilogue";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('restart').style.display= null;
-	document.getElementById('image').style.display= null;
-	document.getElementById('image').src= "../images/obra.png";
-	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Johnathon Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
+	document.getElementById('image').style.display= "none";
+	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Benjamin Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
 	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Next";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageTwo();");
