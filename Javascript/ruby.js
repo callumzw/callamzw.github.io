@@ -368,7 +368,7 @@ function frontPage(){
 	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
 	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
+	document.getElementsByClassName('choice')[0].innerHTML= "Play";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageOne();");
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
