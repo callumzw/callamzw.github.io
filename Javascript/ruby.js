@@ -255,7 +255,7 @@ function inventory(){
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
 		if (localStorage.Potato == 1){
-			document.getElementsByClassName("item")[2].innerText = "...........";
+			document.getElementsByClassName("item")[2].innerText = "_________";
 		}
 		else {
 			document.getElementsByClassName("item")[2].innerText = "......";
