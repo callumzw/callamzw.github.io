@@ -5,13 +5,19 @@ localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
 localStorage.mute = 0;
+// Buttons
 localStorage.Home;
-localStorage.Back;
-localStorage.Restart;
+// localStorage.Back;
+// localStorage.Restart;
 localStorage.Monitor;
+localStorage.Bag;
 localStorage.Music;
 localStorage.Muted;
-
+// Items
+localStorage.Sword;
+localStorage.Gunpowder;
+localStorage.Potato;
+localStorage.Key;
 
 
 		// Macintosh
@@ -22,6 +28,7 @@ localStorage.Muted;
 		localStorage.setItem('Back', "../images/backMac.png");
 		localStorage.setItem('Restart', "../images/restartMac.png");
 		localStorage.setItem('Monitor', "../images/monitorMac.png");
+		localStorage.setItem('Bag', "../images/bagMac.png");
 		localStorage.setItem('Music', "../images/musicMac.png");
 		localStorage.setItem('Muted', "../images/mutedMac.png");
 		}
@@ -33,6 +40,7 @@ localStorage.Muted;
 		localStorage.setItem('Home', "../images/homeIBMGr.png");
 		localStorage.setItem('Back', "../images/backIBMGr.png");
 		localStorage.setItem('Restart', "../images/restartIBMGr.png");
+		localStorage.setItem('Bag', "../images/bagIBMGr.png");
 		localStorage.setItem('Monitor', "../images/monitorIBMGr.png");
 		localStorage.setItem('Music', "../images/musicIBMGr.png");
 		localStorage.setItem('Muted', "../images/mutedIBMGr.png");
@@ -45,6 +53,7 @@ localStorage.Muted;
 		localStorage.setItem('Home', "../images/homeIBMCrm.png");
 		localStorage.setItem('Back', "../images/backIBMCrm.png");
 		localStorage.setItem('Restart', "../images/restartIBMCrm.png");
+		localStorage.setItem('Bag', "../images/bagIBMCrm.png");
 		localStorage.setItem('Monitor', "../images/monitorIBMCrm.png");
 		localStorage.setItem('Music', "../images/musicIBMCrm.png");
 		localStorage.setItem('Muted', "../images/mutedIBMCrm.png");
@@ -58,6 +67,7 @@ localStorage.Muted;
 		localStorage.setItem('Home', "../images/homeComm.png");
 		localStorage.setItem('Back', "../images/backComm.png");
 		localStorage.setItem('Restart', "../images/restartComm.png");
+		localStorage.setItem('Bag', "../images/bagComm.png");
 		localStorage.setItem('Monitor', "../images/monitorComm.png");
 		localStorage.setItem('Music', "../images/musicComm.png");
 		localStorage.setItem('Muted', "../images/mutedComm.png");
@@ -70,6 +80,7 @@ localStorage.Muted;
 		localStorage.setItem('Home', "../images/homeZen.png");
 		localStorage.setItem('Back', "../images/backZen.png");
 		localStorage.setItem('Restart', "../images/restartZen.png");
+		localStorage.setItem('Bag', "../images/bagZen.png");
 		localStorage.setItem('Monitor', "../images/monitorZen.png");
 		localStorage.setItem('Music', "../images/musicZen.png");
 		localStorage.setItem('Muted', "../images/mutedZen.png");
@@ -82,6 +93,7 @@ localStorage.Muted;
 		localStorage.setItem('Home', "../images/home.png");
 		localStorage.setItem('Back', "../images/back.png");
 		localStorage.setItem('Restart', "../images/restart.png");
+		localStorage.setItem('Bag', "../images/bag.png");
 		localStorage.setItem('Monitor', "../images/monitor.png");
 		localStorage.setItem('Music', "../images/music.png");
 		localStorage.setItem('Muted', "../images/muted.png");
@@ -125,6 +137,7 @@ function setColour(){
 			x[i].src = localStorage.Home;
 			}
 		}
+	/*
 	if (document.getElementById("back")){
 		document.getElementById("back").src = localStorage.Back;
 	}
@@ -136,6 +149,10 @@ function setColour(){
 		}
 	if (document.getElementById("restart")){
 		document.getElementById("restart").src = localStorage.Restart;
+	}
+	 */
+	if (document.getElementById("bag")){
+		document.getElementById("bag").src = localStorage.Bag;
 	}
 	if (document.getElementById("box")){
 		document.getElementById("box").style.borderColor = localStorage.Colour;
@@ -244,7 +261,7 @@ function dropdown(){
 function back(){
 	window.history.back();
 }
-
+/*
 function LogCheck(){
 			if (localStorage.Log == null){localStorage.Log = 0;}
 			if (localStorage.Log == 0)
@@ -278,6 +295,8 @@ function Register(){
 			var pass = document.getElementById("password").value;
 
 }
+
+ */
 
 function Continue(){
 			if (parseInt(localStorage.Page) == 0 || localStorage.Page == null){
@@ -361,6 +380,31 @@ function start(x,y){
 		case 1: frontPage(); break;
 	}
 }
+function printActions(heading, num){
+	document.getElementById('heading').innerHTML = heading+"</br>";
+	document.getElementById('image').style.display= null;
+	document.getElementById('image').style.display= "none";
+	localStorage.setItem("Page", num);
+	document.getElementsByClassName('choice')[0].style.display= null;
+	document.getElementsByClassName('choice')[0].innerHTML= "Look";
+	document.getElementsByClassName('choice')[1].style.display= null;
+	document.getElementsByClassName('choice')[1].innerHTML= "Walk";
+	document.getElementsByClassName('choice')[2].style.display= null;
+	document.getElementsByClassName('choice')[2].innerHTML= "Pick Up";
+	document.getElementsByClassName('choice')[3].style.display= null;
+	document.getElementsByClassName('choice')[3].innerHTML= "Use";
+
+}
+function nullAction()
+{
+	var num = Math.floor(Math.random()* 5)
+	switch (num) {
+		case 0:document.getElementById("mainText").innerHTML = "I'm not sure what good that'll do"; break;
+		case 1:document.getElementById("mainText").innerHTML = "Yeaaah.... probably not"; break;
+		case 3:document.getElementById("mainText").innerHTML = "Why would I do that?"; break;
+		case 4:document.getElementById("mainText").innerHTML = "That's not possible"; break;
+	}
+}
 
 function LoadPage(){
 	var x = parseInt(localStorage.Page);
@@ -379,11 +423,11 @@ function LoadPage(){
 	}
 }
 
+
 function frontPage(){
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = "<br/><br/> The Mystery <br/> of <br/> Baboon Island <br/>";
 	document.getElementById('image').style.display= "none";
-	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
 	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Play";
@@ -397,7 +441,6 @@ function frontPage(){
 function pageOne(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('cover').innerHTML = null;
-	document.getElementById('restart').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Benjamin Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
 	document.getElementsByClassName('choice')[0].style.display= null;
