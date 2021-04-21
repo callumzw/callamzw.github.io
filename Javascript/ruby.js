@@ -241,25 +241,25 @@ function inventory(){
 		document.getElementsByClassName("item")[0].innerText = "Sword"
 	}
 	else {
-		document.getElementsByClassName("item")[0].innerText = " "
+		document.getElementsByClassName("item")[0].innerText = "         "
 	}
 	if (localStorage.Gunpowder == 1){
 		document.getElementsByClassName("item")[1].innerText = "Gunpowder"
 	}
 	else {
-		document.getElementsByClassName("item")[1].innerText = " "
+		document.getElementsByClassName("item")[1].innerText = "         "
 	}
 	if (localStorage.Potato == 1){
 		document.getElementsByClassName("item")[2].innerText = "Potato"
 	}
 	else {
-		document.getElementsByClassName("item")[2].innerText = " "
+		document.getElementsByClassName("item")[2].innerText = "         "
 	}
 	if (localStorage.Key == 1){
 		document.getElementsByClassName("item")[3].innerText = "Key"
 	}
 	else {
-		document.getElementsByClassName("item")[3].innerText = " "
+		document.getElementsByClassName("item")[3].innerText = "         "
 	}
 
 }
@@ -307,42 +307,6 @@ function dropdown(){
 function back(){
 	window.history.back();
 }
-/*
-function LogCheck(){
-			if (localStorage.Log == null){localStorage.Log = 0;}
-			if (localStorage.Log == 0)
-			{
-				document.getElementById("Log").innerHTML = "Log In";
-				document.getElementById("Log").href = "Log In/Log In.html";
-			}
-			else if (localStorage.Log == 1)
-			{
-				document.getElementById("Log").innerHTML = "Log Out";
-				document.getElementById("Log").href = "Log In/Logout.html";
-			}
-}
-
-
-function LogIn(){
-	localStorage.setItem("Log", 1);
-	var user = document.getElementById("username").value;
-	var pass = document.getElementById("password").value;
-	var obj = {username: user, password: pass};
-	var userData = JSON.stringify(obj);
-	localStorage.setItem("UserData", userData);
-
-
-}
-function Logout(){
-	localStorage.setItem("Log", 0);
-}
-function Register(){
-			var user = document.getElementById("username").value;
-			var pass = document.getElementById("password").value;
-
-}
-
- */
 
 function Continue(){
 			if (parseInt(localStorage.Page) == 0 || localStorage.Page == null){
