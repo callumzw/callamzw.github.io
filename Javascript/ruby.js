@@ -268,7 +268,7 @@ function openBag() {
 	var b = localStorage.openBag;
 	var x = document.getElementsByClassName("bag-content");
 	if (b == 0) {
-		document.getElementsByClassName("monitor-content").style.display="none";
+		document.getElementsByClassName("monitor-content")[0].style.display="none";
 		localStorage.setItem('drop', 0);
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "block";
@@ -289,7 +289,7 @@ function dropdown(){
 	if (n == 0){
 		for (i = 0; i < x.length; i++) {
 			if (document.getElementById("bag")){
-			document.getElementsByClassName("bag-content").style.display="none";
+			document.getElementsByClassName("bag-content")[0].style.display="none";
 			localStorage.setItem('openBag', 0);
 			}
 			x[i].style.display = "block";
