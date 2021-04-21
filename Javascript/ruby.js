@@ -8,8 +8,6 @@ localStorage.openBag= 0;
 localStorage.mute = 0;
 // Buttons
 localStorage.Home;
-// localStorage.Back;
-// localStorage.Restart;
 localStorage.Monitor;
 localStorage.Bag;
 localStorage.Music;
@@ -17,9 +15,12 @@ localStorage.Muted;
 // Items
 localStorage.Sword;
 localStorage.Gunpowder;
-localStorage.Fort;
 localStorage.Potato;
+localStorage.Dirt;
 localStorage.Key;
+// Checks
+localStorage.Fort;
+localStorage.Drunkard
 
 
 		// Macintosh
@@ -263,13 +264,21 @@ function inventory(){
 			document.getElementsByClassName("item")[2].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[2].style.borderColor = localStorage.Colour;
 		}
+	if (localStorage.Dirt == 1){
+		document.getElementsByClassName("item")[3].innerText = "Dirt";
+	}
+	else {
+		document.getElementsByClassName("item")[3].innerText = "________";
+		document.getElementsByClassName("item")[3].style.color = localStorage.Background;
+		document.getElementsByClassName("item")[3].style.borderColor = localStorage.Colour;
+	}
 		if (localStorage.Key == 1){
-			document.getElementsByClassName("item")[3].innerText = "Key";
+			document.getElementsByClassName("item")[4].innerText = "Key";
 		}
 		else {
-			document.getElementsByClassName("item")[3].innerText = "________";
-			document.getElementsByClassName("item")[3].style.color = localStorage.Background;
-			document.getElementsByClassName("item")[3].style.borderColor = localStorage.Colour;
+			document.getElementsByClassName("item")[4].innerText = "________";
+			document.getElementsByClassName("item")[4].style.color = localStorage.Background;
+			document.getElementsByClassName("item")[4].style.borderColor = localStorage.Colour;
 		}
 }
 
@@ -598,6 +607,13 @@ function frontPage(){
 	document.getElementsByClassName('choice')[12].innerHTML= "Play";
 	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageOne();");
 	localStorage.setItem("Page", "0");
+	localStorage.Sword = 0;
+	localStorage.Gunpowder = 0;
+	localStorage.Potato = 0;
+	localStorage.Dirt= 0;
+	localStorage.Key = 0;
+	localStorage.Drunkard= 0;
+	localStorage.Fort= 1;
 
 }
 
@@ -734,17 +750,21 @@ function Pier(){
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
-	document.getElementById("mainText").innerHTML = "You come across an archway with 'Town of Hilt' scrawled across it with paint" ;
+	document.getElementById("mainText").innerHTML = "The pier struts out unto the middle of the bay. </br>" +
+		"The water is a clear turquoise, with the fish seen clearly scavenging on the ocean floor.</br>" +
+		"The man you first spoke to is still fishing away. He is stood near a small hut." ;
 	Interact();
-	document.getElementsByClassName('choice')[2].style.display = null;
-	document.getElementsByClassName('choice')[1].style.display = null;
-	document.getElementsByClassName('choice')[2].innerHTML = "Town (East)";
-	document.getElementsByClassName('choice')[2].setAttribute("onclick", "Town();");
-	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
-	document.getElementsByClassName('choice')[0].style.display = "none";
-	document.getElementsByClassName('choice')[3].style.display = "none";
-	localStorage.setItem("Page", "RoadTown");
+	document.getElementsByClassName('choice')[13].style.display = null;
+	document.getElementsByClassName('choice')[14].style.display = null;
+	document.getElementsByClassName('choice')[15].style.display = null;
+	document.getElementsByClassName('choice')[13].innerHTML = "Man Fishing";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[14].innerHTML = "Hut";
+	document.getElementsByClassName('choice')[14].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[15].innerHTML = "Ocean";
+	document.getElementsByClassName('choice')[15].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[16].style.display = "none";
+	localStorage.setItem("Page", "Pier");
 
 }
 function Town(){
@@ -753,17 +773,160 @@ function Town(){
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
 	document.getElementById("mainText").innerHTML = "You walk into a plaza, there's an empty fountain in the middle. On the other side of the fountain is a flower shop called Bloom & Boom" +
-		"" ;
+		"You hear muffled noise from a building to the left, it's the Mucky Tankard" ;
 	Interact();
-	document.getElementsByClassName('choice')[0].style.display = null;
-	document.getElementsByClassName('choice')[1].style.display = null;
-	document.getElementsByClassName('choice')[0].innerHTML = "Town (East)";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "Town();");
-	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
-	document.getElementsByClassName('choice')[2].style.display = "none";
-	document.getElementsByClassName('choice')[3].style.display = "none";
-	localStorage.setItem("Page", "RoadTown");
+	document.getElementsByClassName('choice')[13].style.display = null;
+	document.getElementsByClassName('choice')[14].style.display = null;
+	document.getElementsByClassName('choice')[15].style.display = null;
+	document.getElementsByClassName('choice')[13].innerHTML = "Mucky Tankard ";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "InteractMuckyTankard(0);");
+	document.getElementsByClassName('choice')[14].innerHTML = "Bloom & Boom";
+	document.getElementsByClassName('choice')[14].setAttribute("onclick", "InteractBloomBoom(0);");
+	document.getElementsByClassName('choice')[15].innerHTML = "Road";
+	document.getElementsByClassName('choice')[15].setAttribute("onclick", "InteractRoadTown(0);");
+	document.getElementsByClassName('choice')[16].style.display = "none";
+	localStorage.setItem("Page", "Town");
+}
+
+function InteractMuckyTankard(x){
+			switch (x) {
+				case 0: Actions();
+					document.getElementsByClassName('choice')[4].setAttribute("onclick", "InteractMuckyTankard(1);");
+					document.getElementsByClassName('choice')[5].setAttribute("onclick", "MuckyTankard();");
+					document.getElementsByClassName('choice')[6].setAttribute("onclick", "InteractMuckyTankard(2);");
+					document.getElementsByClassName('choice')[7].setAttribute("onclick", "InteractMuckyTankard(3);");
+					break;
+				case 1:
+					document.getElementById("mainText").innerHTML = "It is small tavern with a tankard on the sign. You hear a lot of noise from it. All be it muffled.";
+					Next();
+					document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+				default:
+					nullAction();
+					Next();
+					document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			}
+	}
+function InteractBloomBoom(x){
+	switch (x) {
+		case 0: Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "InteractBloomBoom(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "BloomBoom();");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "InteractBloomBoom(2);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "InteractBloomBoom(3);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "It is a shop with large glass windows on the front. Plants are pressing against the glass and blocking a view in.";
+			Next();
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+		default:
+			nullAction();
+			Next();
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+	}
+}
+function InteractRoadTown(x){
+	switch (x) {
+		case 0:
+			Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "InteractRoadTown(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "RoadTown();");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "InteractRoadTown(2);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "InteractRoadTown(3);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "It's a dirt road.";
+			Next();
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			break;
+		case 2:
+			if (localStorage.Dirt == 0) {
+				document.getElementById("mainText").innerHTML = "You got Dirt. Congratulations";
+				Next();
+				document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+				localStorage.Dirt = 1
+			}
+			else {
+				document.getElementById("mainText").innerHTML = "You already have dirt";
+				Next();
+				document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			}
+			break;
+		default:
+			document.getElementById("mainText").innerHTML = "You kick the dirt";
+			Next();
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			break;
+	}
+}
+
+function MuckyTankard(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	if (localStorage.Drunkard == 0) {
+		document.getElementById("mainText").innerHTML = "The place is full of life, everyone loud and with drinks in hand. </br>" +
+			'A drunk pirate turns to you and says, while slurring his words, "' + "You're"+ " a new face," + "ain't ya?" + '"';
+		Next();
+		document.getElementsByClassName('choice')[12].setAttribute("onclick", "Drunkard(0);");
+		localStorage.setItem("Page", "MuckyTankard");
+	}
+	else {
+		document.getElementById("mainText").innerHTML = "The place is full of life, everyone loud and with drinks in hand. " +
+			"A group of pirates are drinking by the tables next ot the door. You see food and drink coming out a door at the end of the room." +
+			"Across from the door is a dark corner that is dimly lit. You see a figure sitting down, but cant make out their face";
+		Interact();
+		document.getElementsByClassName('choice')[13].style.display = null;
+		document.getElementsByClassName('choice')[14].style.display = null;
+		document.getElementsByClassName('choice')[15].style.display = null;
+		document.getElementsByClassName('choice')[16].style.display = null;
+		document.getElementsByClassName('choice')[13].innerHTML = "Tables";
+		document.getElementsByClassName('choice')[13].setAttribute("onclick", "Tables();");
+		document.getElementsByClassName('choice')[14].innerHTML = "Corner";
+		document.getElementsByClassName('choice')[14].setAttribute("onclick", "Corner();");
+		document.getElementsByClassName('choice')[15].innerHTML = "Kitchen";
+		document.getElementsByClassName('choice')[15].setAttribute("onclick", "Kitchen();");
+		document.getElementsByClassName('choice')[16].innerHTML = "Exit";
+		document.getElementsByClassName('choice')[16].setAttribute("onclick", "Town();");
+	}
+	localStorage.setItem("Page", "MuckyTankard");
+}
+
+function Drunkard(x) {
+	switch (x) {
+		case 0:
+			document.getElementById("mainText").innerHTML = '"Yes, i just arrived on the island. My name is Benjamin Hornblower, and I want to be a pirate".';
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Drunkard(1);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = '"HA!" *hiccup* </br> "Funny name kid" </br> *hiccup* "Listen here kid, you wanna be a pirate? You have to speak with the big guy Haha" ' +
+				'He points to a man in a dark corner sitting by himself, before turning back to his drink ';
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Drunkard(2);");
+			break;
+		case 2:
+			localStorage.Drunkard = 1;
+			MuckyTankard();
+	}
+}
+function BloomBoom(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = "A bell rings as you enter, the shop is full of colourful plants and flowers. " +
+		"Behind a rather large fern, a small lady pops her head out.</br> " +
+		'"Oh. Hello"</br>' +
+		'She turns her focus back to the plant.';
+	Interact();
+	document.getElementsByClassName('choice')[13].style.display = null;
+	document.getElementsByClassName('choice')[14].style.display = null;
+	document.getElementsByClassName('choice')[13].innerHTML = "Lady ";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "MuckyTankard();");
+	document.getElementsByClassName('choice')[14].innerHTML = "Flowers";
+	document.getElementsByClassName('choice')[14].setAttribute("onclick", "Fountain();");
+	document.getElementsByClassName('choice')[15].style.display = "none";
+	document.getElementsByClassName('choice')[16].style.display = "none";
+	localStorage.setItem("Page", "BloomBoom");
 
 }
 
