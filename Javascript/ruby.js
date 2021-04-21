@@ -164,6 +164,32 @@ function setColour(){
 			x[i].style.color = localStorage.Colour;
 			}
 		}
+	if (document.getElementsByClassName("item")){
+		if (localStorage.Sword == 1){
+			document.getElementsByClassName("item")[0].innerText = "Sword";
+		}
+		else {
+			document.getElementsByClassName("item")[0].innerText = "	";
+		}
+		if (localStorage.Gunpowder == 1){
+			document.getElementsByClassName("item")[1].innerText = "Gunpowder";
+		}
+		else {
+			document.getElementsByClassName("item")[1].style.fontColor = localStorage.Background;
+		}
+		if (localStorage.Potato == 1){
+			document.getElementsByClassName("item")[2].innerText = "Potato";
+		}
+		else {
+			document.getElementsByClassName("item")[2].innerText = " ";
+		}
+		if (localStorage.Key == 1){
+			document.getElementsByClassName("item")[3].innerText = "Key";
+		}
+		else {
+			document.getElementsByClassName("item")[3].innerText = "	";
+		}
+	}
 		if (document.getElementsByClassName("slider")){
 			let root = document.documentElement;
 			root.style.setProperty('--slider-thumb', localStorage.Colour);
