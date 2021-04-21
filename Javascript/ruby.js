@@ -305,7 +305,6 @@ function Continue(){
 		document.getElementById('heading').innerHTML = "</br>";
 		document.getElementById('cover').innerHTML = "</br>";
 		document.getElementById('image').style.display = "none";
-		document.getElementById('restart').style.display = "none";
 		document.getElementById("mainText").innerHTML = "</br>";
 		document.getElementsByClassName('choice')[0].style.display = null;
 		document.getElementsByClassName('choice')[0].innerHTML = "Continue";
@@ -320,7 +319,6 @@ function ConfirmNew(){
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = " Are You Sure?";
 	document.getElementById('image').style.display = "none";
-	document.getElementById('restart').style.display = "none";
 	document.getElementById("mainText").innerHTML = "";
 	document.getElementsByClassName('choice')[0].style.display = null;
 	document.getElementsByClassName('choice')[0].innerHTML = "Yes";
