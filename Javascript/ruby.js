@@ -222,8 +222,6 @@ function volume(){
 	var x = document.getElementsByClassName("slider");
 	if (n == 0){
 		for (i = 0; i < x.length; i++) {
-			document.getElementsByClassName("monitor-content")[0].style.display="none";
-			localStorage.setItem('drop', 0);
 			x[i].style.display = "block";
 			}
 			localStorage.setItem('volBar', 1);
@@ -238,10 +236,40 @@ function volume(){
 	
 }
 
+function inventory(){
+	if (localStorage.Sword == 1){
+		document.getElementsByClassName("bag-content")[0].innerHTML = "Sword"
+	}
+	else {
+		document.getElementsByClassName("bag-content")[0].innerHTML = " "
+	}
+	if (localStorage.Gunpowder == 1){
+		document.getElementsByClassName("bag-content")[1].innerHTML = "Gunpowder"
+	}
+	else {
+		document.getElementsByClassName("bag-content")[1].innerHTML = " "
+	}
+	if (localStorage.Potato == 1){
+		document.getElementsByClassName("bag-content")[2].innerHTML = "Potato"
+	}
+	else {
+		document.getElementsByClassName("bag-content")[2].innerHTML = " "
+	}
+	if (localStorage.Key == 1){
+		document.getElementsByClassName("bag-content")[3].innerHTML = "Key"
+	}
+	else {
+		document.getElementsByClassName("bag-content")[3].innerHTML = " "
+	}
+
+}
+
 function openBag() {
 	var b = localStorage.openBag;
 	var x = document.getElementsByClassName("bag-content");
 	if (b == 0) {
+		document.getElementsByClassName("monitor-content").style.display="none";
+		localStorage.setItem('drop', 0);
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "block";
 		}
@@ -260,9 +288,9 @@ function dropdown(){
 	var x = document.getElementsByClassName("monitor-content");
 	if (n == 0){
 		for (i = 0; i < x.length; i++) {
-			if (document.getElementById("music")){
-			document.getElementsByClassName("slider")[0].style.display="none";
-			localStorage.setItem('volBar', 0);
+			if (document.getElementById("bag")){
+			document.getElementsByClassName("bag-content").style.display="none";
+			localStorage.setItem('openBag', 0);
 			}
 			x[i].style.display = "block";
 			}
@@ -435,7 +463,6 @@ function LoadPage(){
 		case 6: pageSix(); break;
 		case 7: pageSeven(); break;
 		case 8: pageEight(); break;
-		case 9: pageNine(); break;
 		default: frontPage(); break;
 	}
 }
@@ -453,6 +480,11 @@ function frontPage(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	localStorage.setItem("Page", 0);
+	localStorage.Sword = 0;
+	localStorage.Gunpowder= 0;
+	localStorage.Potato = 1;
+	localStorage.Key= 0;
+
 }
 
 function pageOne(){

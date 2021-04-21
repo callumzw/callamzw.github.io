@@ -42,19 +42,20 @@ height:52px;
 
 
 #music{
-display :none;
-position: absolute;
-right: 70px; top: 7px;
-width:49px;
-height:52px;
+    display :none;
+    position: absolute;
+    left: 62px; top: 7px;
+    width:49px;
+    height:52px;
 }
 #music:hover{transform: scale(1.1);}
 #music:hover + .slider{display: block;}
-#mute{
-position: absolute;
-right: 70px; top: 7px;
-width:49px;
-height:52px;
+#mute
+{
+    position: absolute;
+    left: 62px; top: 7px;
+    width:49px;
+    height:52px;
 }
 #mute:hover{transform: scale(1.1);}
 
@@ -64,7 +65,7 @@ height:52px;
 .slider {
 	display:none;
 	position: absolute;
-	top:127px; right:15px;
+	top:127px; left:15px;
   -webkit-appearance: none;
   width: 150px;
   height: 15px;
@@ -103,28 +104,9 @@ width:48px;
 height:52px;
 }
 #home:hover{transform: scale(1.1);}
-
-/*
-#back{
-position: absolute;
-left: 62px; top: 10px;
-width:70px;
-height:40px;
-}
-#back:hover{transform: scale(1.1);}
-
-#restart{
-	position: absolute;
-	left: 140px; top: 7px;
-	width:57px;
-	height:50px;
-}
-#restart:hover{transform: scale(1.1);}
-
- */
 #bag{
     position: absolute;
-    left: 62px; top: 10px;
+    right: 70px; top: 7px;
     width:55px;
     height:47px;
 }
@@ -136,7 +118,7 @@ height:40px;
     display: none;
     top:53px;
     position: absolute;
-    left: 2px;
+    right: 2px;
     min-width: 56px;
     z-index: 1;
 }
