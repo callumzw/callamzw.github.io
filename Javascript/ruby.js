@@ -800,10 +800,12 @@ function InteractMuckyTankard(x){
 					document.getElementById("mainText").innerHTML = "It is small tavern with a tankard on the sign. You hear a lot of noise from it. All be it muffled.";
 					Next();
 					document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+					break;
 				default:
 					nullAction();
 					Next();
 					document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+					break;
 			}
 	}
 function InteractBloomBoom(x){
@@ -818,10 +820,12 @@ function InteractBloomBoom(x){
 			document.getElementById("mainText").innerHTML = "It is a shop with large glass windows on the front. Plants are pressing against the glass and blocking a view in.";
 			Next();
 			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			break;
 		default:
 			nullAction();
 			Next();
 			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			break;
 	}
 }
 function InteractRoadTown(x){
