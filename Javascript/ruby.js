@@ -13,6 +13,7 @@ localStorage.Music;
 localStorage.Muted;
 
 
+
 		// Macintosh
 		function Mac(){
 		localStorage.setItem('Colour', '#e5ffff');
@@ -279,7 +280,7 @@ function Register(){
 }
 
 function Continue(){
-			if (localStorage.Page == "0"){
+			if (parseInt(localStorage.Page) == 0 || localStorage.Page == null){
 				AudioSelect(1);
 			}
 		document.getElementById('heading').innerHTML = "</br>";
