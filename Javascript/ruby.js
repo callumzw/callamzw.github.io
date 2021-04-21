@@ -245,11 +245,13 @@ function openBag() {
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "block";
 		}
+		localStorage.setItem('openBag', 1);
 	}
 	else {
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "none";
 		}
+		localStorage.setItem('openBag', 0);
 	}
 }
 
