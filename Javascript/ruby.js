@@ -242,7 +242,7 @@ function inventory(){
 			document.getElementsByClassName("item")[0].innerText = "Sword";
 		}
 		else {
-			document.getElementsByClassName("item")[0].innerText = ".....";
+			document.getElementsByClassName("item")[0].innerText = "________";
 			document.getElementsByClassName("item")[0].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[0].style.borderColor = localStorage.Colour;
 		}
@@ -250,15 +250,15 @@ function inventory(){
 			document.getElementsByClassName("item")[1].innerText = "Gunpowder";
 		}
 		else {
-			document.getElementsByClassName("item")[1].innerText = "Grenowdup";
+			document.getElementsByClassName("item")[1].innerText = "________";
 			document.getElementsByClassName("item")[1].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
 		if (localStorage.Potato == 1){
-			document.getElementsByClassName("item")[2].innerText = "_________";
+			document.getElementsByClassName("item")[2].innerText = "Potato";
 		}
 		else {
-			document.getElementsByClassName("item")[2].innerText = "......";
+			document.getElementsByClassName("item")[2].innerText = "________";
 			document.getElementsByClassName("item")[2].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[2].style.borderColor = localStorage.Colour;
 		}
@@ -266,7 +266,7 @@ function inventory(){
 			document.getElementsByClassName("item")[3].innerText = "Key";
 		}
 		else {
-			document.getElementsByClassName("item")[3].innerText = "...";
+			document.getElementsByClassName("item")[3].innerText = "________";
 			document.getElementsByClassName("item")[3].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[3].style.borderColor = localStorage.Colour;
 		}
@@ -454,7 +454,7 @@ function frontPage(){
 	localStorage.setItem("Page", 0);
 	localStorage.Sword = 0;
 	localStorage.Gunpowder= 1;
-	localStorage.Potato = 1;
+	localStorage.Potato = 0;
 	localStorage.Key= 0;
 
 }
@@ -472,7 +472,6 @@ function pageOne(){
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	localStorage.setItem("Page", 1);
 	localStorage.Gunpowder= 0;
-	localStorage.Potato = 0;
 }
 
 function pageTwo(){
