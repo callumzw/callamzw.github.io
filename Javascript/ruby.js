@@ -17,6 +17,7 @@ localStorage.Muted;
 // Items
 localStorage.Sword;
 localStorage.Gunpowder;
+localStorage.Fort;
 localStorage.Potato;
 localStorage.Key;
 
@@ -560,6 +561,16 @@ function nullAction()
 		case 4:document.getElementById("mainText").innerHTML = "That's not possible"; break;
 	}
 }
+function nullManor()
+{
+	var num = Math.floor(Math.random()* 5)
+	switch (num) {
+		case 0:document.getElementById("mainText").innerHTML = "Are you crazy? What if I get Hit!"; break;
+		case 1:document.getElementById("mainText").innerHTML = "Yeaaah.... that doesnt look safe to me"; break;
+		case 3:document.getElementById("mainText").innerHTML = "Why would I do that while they're firing at it?"; break;
+		case 4:document.getElementById("mainText").innerHTML = "I might be fast enough to dodge the cannonballs?.....actually probably not"; break;
+	}
+}
 
 function LoadPage(){
 	var x = localStorage.Page;
@@ -684,15 +695,19 @@ function RoadManor() {
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
 	document.getElementById("mainText").innerHTML = 'You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island' +
-		'They are all missing. Still best not to go inside';
+		"They are all missing. </br> Probably best to stay away for now while they're firing at it";
 	Navigation();
 	document.getElementsByClassName('choice')[0].style.display = null;
 	document.getElementsByClassName('choice')[2].style.display = null;
 	document.getElementsByClassName('choice')[0].innerHTML = "North Road </br>";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "BlockSouth();");
+	document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
+	if (localStorage.Fort == 0) {
+		document.getElementsByClassName('choice')[1].setAttribute("onclick", "Manor();");
+	}
+	else {document.getElementsByClassName('choice')[1].setAttribute("onclick", "nullManor();"); }
 	document.getElementsByClassName('choice')[2].innerHTML = "East Road";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "RoadPier();");
-	document.getElementsByClassName('choice')[1].style.display = "none";
 	document.getElementsByClassName('choice')[3].style.display = "none";
 	localStorage.setItem("Page", "RoadManor");
 }
@@ -705,9 +720,9 @@ function RoadTown() {
 	Navigation();
 	document.getElementsByClassName('choice')[2].style.display = null;
 	document.getElementsByClassName('choice')[1].style.display = null;
-	document.getElementsByClassName('choice')[0].innerHTML = "Town (East)";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "Town();");
-	document.getElementsByClassName('choice')[1].innerHTML = "Pier (West)";
+	document.getElementsByClassName('choice')[2].innerHTML = "Town (East)";
+	document.getElementsByClassName('choice')[2].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
 	document.getElementsByClassName('choice')[0].style.display = "none";
 	document.getElementsByClassName('choice')[3].style.display = "none";
@@ -715,9 +730,40 @@ function RoadTown() {
 }
 
 function Pier(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = "You come across an archway with 'Town of Hilt' scrawled across it with paint" ;
+	Interact();
+	document.getElementsByClassName('choice')[2].style.display = null;
+	document.getElementsByClassName('choice')[1].style.display = null;
+	document.getElementsByClassName('choice')[2].innerHTML = "Town (East)";
+	document.getElementsByClassName('choice')[2].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[0].style.display = "none";
+	document.getElementsByClassName('choice')[3].style.display = "none";
+	localStorage.setItem("Page", "RoadTown");
 
 }
 function Town(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = "You walk into a plaza, there's an empty fountain in the middle. On the other side of the fountain is a flower shop called Bloom & Boom" +
+		"" ;
+	Interact();
+	document.getElementsByClassName('choice')[0].style.display = null;
+	document.getElementsByClassName('choice')[1].style.display = null;
+	document.getElementsByClassName('choice')[0].innerHTML = "Town (East)";
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[2].style.display = "none";
+	document.getElementsByClassName('choice')[3].style.display = "none";
+	localStorage.setItem("Page", "RoadTown");
 
 }
 
