@@ -253,7 +253,7 @@ function inventory(){
 		document.getElementsByClassName("item")[2].innerText = "Potato"
 	}
 	else {
-		document.getElementsByClassName("item")[2].innerText = " " + "      "
+		document.getElementsByClassName("item")[2].innerText = "|       "
 	}
 	if (localStorage.Key == 1){
 		document.getElementsByClassName("item")[3].innerText = "Key"
