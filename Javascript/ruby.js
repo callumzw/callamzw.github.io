@@ -4,6 +4,7 @@ localStorage.Page;
 localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
+localStorage.openBag= 0;
 localStorage.mute = 0;
 // Buttons
 localStorage.Home;
@@ -237,6 +238,21 @@ function volume(){
 	
 }
 
+function openBag() {
+	var b = localStorage.openBag;
+	var x = document.getElementsByClassName("bag-content");
+	if (b == 0) {
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "block";
+		}
+	}
+	else {
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+	}
+}
+
 function dropdown(){
 	var n = localStorage.drop;
 	var x = document.getElementsByClassName("monitor-content");
@@ -302,18 +318,20 @@ function Continue(){
 			if (parseInt(localStorage.Page) == 0 || localStorage.Page == null){
 				AudioSelect(1);
 			}
-		document.getElementById('heading').innerHTML = "</br>";
-		document.getElementById('cover').innerHTML = "</br>";
-		document.getElementById('image').style.display = "none";
-		document.getElementById("mainText").innerHTML = "</br>";
-		document.getElementsByClassName('choice')[0].style.display = null;
-		document.getElementsByClassName('choice')[0].innerHTML = "Continue";
-		document.getElementsByClassName('choice')[1].style.display = null;
-		document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
-		document.getElementsByClassName('choice')[1].innerHTML = "New Game";
-		document.getElementsByClassName('choice')[1].setAttribute("onclick", "ConfirmNew();");
-		document.getElementsByClassName('choice')[2].style.display = "none";
-		document.getElementsByClassName('choice')[3].style.display = "none";
+			else {
+				document.getElementById('heading').innerHTML = "</br>";
+				document.getElementById('cover').innerHTML = "</br>";
+				document.getElementById('image').style.display = "none";
+				document.getElementById("mainText").innerHTML = "</br>";
+				document.getElementsByClassName('choice')[0].style.display = null;
+				document.getElementsByClassName('choice')[0].innerHTML = "Continue";
+				document.getElementsByClassName('choice')[1].style.display = null;
+				document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
+				document.getElementsByClassName('choice')[1].innerHTML = "New Game";
+				document.getElementsByClassName('choice')[1].setAttribute("onclick", "ConfirmNew();");
+				document.getElementsByClassName('choice')[2].style.display = "none";
+				document.getElementsByClassName('choice')[3].style.display = "none";
+			}
 }
 function ConfirmNew(){
 	document.getElementById('heading').innerHTML = "";
