@@ -255,7 +255,7 @@ function inventory(){
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
 		if (localStorage.Potato == 1){
-			document.getElementsByClassName("item")[2].innerText = "Potato";
+			document.getElementsByClassName("item")[2].innerText = "...........";
 		}
 		else {
 			document.getElementsByClassName("item")[2].innerText = "......";
@@ -454,7 +454,7 @@ function frontPage(){
 	localStorage.setItem("Page", 0);
 	localStorage.Sword = 0;
 	localStorage.Gunpowder= 1;
-	localStorage.Potato = 0;
+	localStorage.Potato = 1;
 	localStorage.Key= 0;
 
 }
@@ -472,6 +472,7 @@ function pageOne(){
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	localStorage.setItem("Page", 1);
 	localStorage.Gunpowder= 0;
+	localStorage.Potato = 0;
 }
 
 function pageTwo(){
