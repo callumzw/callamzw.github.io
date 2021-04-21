@@ -238,28 +238,28 @@ function volume(){
 
 function inventory(){
 	if (localStorage.Sword == 1){
-		document.getElementsByClassName("bag-content")[0].innerText = "Sword"
+		document.getElementsByClassName("item")[0].innerText = "Sword"
 	}
 	else {
-		document.getElementsByClassName("bag-content")[0].innerText = " "
+		document.getElementsByClassName("item")[0].innerText = " "
 	}
 	if (localStorage.Gunpowder == 1){
-		document.getElementsByClassName("bag-content")[1].innerText = "Gunpowder"
+		document.getElementsByClassName("item")[1].innerText = "Gunpowder"
 	}
 	else {
-		document.getElementsByClassName("bag-content")[1].innerText = " "
+		document.getElementsByClassName("item")[1].innerText = " "
 	}
 	if (localStorage.Potato == 1){
-		document.getElementsByClassName("bag-content")[2].innerText = "Potato"
+		document.getElementsByClassName("item")[2].innerText = "Potato"
 	}
 	else {
-		document.getElementsByClassName("bag-content")[2].innerText = " "
+		document.getElementsByClassName("item")[2].innerText = " "
 	}
 	if (localStorage.Key == 1){
-		document.getElementsByClassName("bag-content")[3].innerText = "Key"
+		document.getElementsByClassName("item")[3].innerText = "Key"
 	}
 	else {
-		document.getElementsByClassName("bag-content")[3].innerText = " "
+		document.getElementsByClassName("item")[3].innerText = " "
 	}
 
 }
