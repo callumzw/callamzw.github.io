@@ -250,7 +250,7 @@ function inventory(){
 			document.getElementsByClassName("item")[1].innerText = "Gunpowder";
 		}
 		else {
-			document.getElementsByClassName("item")[1].innerText = "Ooooooooo";
+			document.getElementsByClassName("item")[1].innerText = "Grenowdup";
 			document.getElementsByClassName("item")[1].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
