@@ -446,7 +446,6 @@ function pageOne(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "frontPage();");
 	localStorage.setItem("Page", 1);
 }
 
@@ -461,7 +460,6 @@ function pageTwo(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageOne();");
 	localStorage.setItem("Page", 2);
 }
 
@@ -480,7 +478,6 @@ function pageThree(){
 	document.getElementsByClassName('choice')[2].innerHTML= "Explore Below Deck";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageTwo();");
 	localStorage.setItem("Page", 3);
 }
 function pageFour(){
@@ -494,7 +491,6 @@ function pageFour(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.setItem("Page", 4);
 }
 function pageFive(){
@@ -508,7 +504,6 @@ function pageFive(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.setItem("Page", 5);
 }
 
@@ -525,7 +520,6 @@ function pageSix(){
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageEight();");
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageThree();");
 	localStorage.setItem("Page", 6);
 }
 
@@ -540,7 +534,6 @@ function pageSeven(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageSix();");
 	localStorage.setItem("Page", 7);
 }
 
@@ -554,7 +547,6 @@ function pageEight(){
 	document.getElementsByClassName('choice')[1].style.display= "none";
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
-	document.getElementById('backward').setAttribute("onclick", "pageSix();");
 	localStorage.setItem("Page", 8);
 }
 
