@@ -336,7 +336,6 @@ function AudioSelect(y){
 	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = "</br>";
 	document.getElementById('image').style.display= "none";
-	document.getElementById('restart').style.display= "none";
 	document.getElementById("mainText").innerHTML = "</br>";
 	document.getElementsByClassName('choice')[0].style.display= null;
 	document.getElementsByClassName('choice')[0].innerHTML= "Audio";
