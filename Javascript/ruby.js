@@ -247,7 +247,7 @@ function inventory(){
 		document.getElementsByClassName("item")[1].innerText = "Gunpowder";
 	}
 	else {
-		document.getElementsByClassName("item")[1].style.fontcolor = localStorage.Background;
+		document.getElementsByClassName("item")[1].style.fontColor = localStorage.Background;
 	}
 	if (localStorage.Potato == 1){
 		document.getElementsByClassName("item")[2].innerText = "Potato";
