@@ -247,13 +247,13 @@ function inventory(){
 		document.getElementsByClassName("item")[1].innerText = "Gunpowder"
 	}
 	else {
-		document.getElementsByClassName("item")[1].innerText = "	"
+		document.getElementsByClassName("item")[1].innerText = "|       "
 	}
 	if (localStorage.Potato == 1){
 		document.getElementsByClassName("item")[2].innerText = "Potato"
 	}
 	else {
-		document.getElementsByClassName("item")[2].innerText = "|       "
+		document.getElementsByClassName("item")[2].innerText = " "
 	}
 	if (localStorage.Key == 1){
 		document.getElementsByClassName("item")[3].innerText = "Key"
