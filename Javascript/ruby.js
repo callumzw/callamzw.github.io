@@ -453,8 +453,8 @@ function frontPage(){
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	localStorage.setItem("Page", 0);
 	localStorage.Sword = 0;
-	localStorage.Gunpowder= 0;
-	localStorage.Potato = 1;
+	localStorage.Gunpowder= 1;
+	localStorage.Potato = 0;
 	localStorage.Key= 0;
 
 }
@@ -471,6 +471,7 @@ function pageOne(){
 	document.getElementsByClassName('choice')[2].style.display= "none";
 	document.getElementsByClassName('choice')[3].style.display= "none";
 	localStorage.setItem("Page", 1);
+	localStorage.Gunpowder= 0;
 }
 
 function pageTwo(){
