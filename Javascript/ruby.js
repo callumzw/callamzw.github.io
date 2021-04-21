@@ -241,25 +241,25 @@ function inventory(){
 		document.getElementsByClassName("item")[0].innerText = "Sword"
 	}
 	else {
-		document.getElementsByClassName("item")[0].innerText = "         "
+		document.getElementsByClassName("item")[0].innerText = "	"
 	}
 	if (localStorage.Gunpowder == 1){
 		document.getElementsByClassName("item")[1].innerText = "Gunpowder"
 	}
 	else {
-		document.getElementsByClassName("item")[1].innerText = "         "
+		document.getElementsByClassName("item")[1].innerText = "	"
 	}
 	if (localStorage.Potato == 1){
 		document.getElementsByClassName("item")[2].innerText = "Potato"
 	}
 	else {
-		document.getElementsByClassName("item")[2].innerText = "         "
+		document.getElementsByClassName("item")[2].innerText = "	"
 	}
 	if (localStorage.Key == 1){
 		document.getElementsByClassName("item")[3].innerText = "Key"
 	}
 	else {
-		document.getElementsByClassName("item")[3].innerText = "         "
+		document.getElementsByClassName("item")[3].innerText = "	"
 	}
 
 }
