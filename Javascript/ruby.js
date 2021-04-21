@@ -175,7 +175,7 @@ function setColour(){
 			document.getElementsByClassName("item")[1].innerText = "Gunpowder";
 		}
 		else {
-			document.getElementsByClassName("item")[1].style.color = localStorage.Background;
+			document.getElementsByClassName("item")[1].style.font = localStorage.Background;
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
 		if (localStorage.Potato == 1){
