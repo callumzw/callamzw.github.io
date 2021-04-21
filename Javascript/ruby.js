@@ -242,6 +242,7 @@ function inventory(){
 			document.getElementsByClassName("item")[0].innerText = "Sword";
 		}
 		else {
+			document.getElementsByClassName("item")[0].innerText = ".....";
 			document.getElementsByClassName("item")[0].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[0].style.borderColor = localStorage.Colour;
 		}
@@ -249,6 +250,7 @@ function inventory(){
 			document.getElementsByClassName("item")[1].innerText = "Gunpowder";
 		}
 		else {
+			document.getElementsByClassName("item")[1].innerText = ".........";
 			document.getElementsByClassName("item")[1].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[1].style.borderColor = localStorage.Colour;
 		}
@@ -256,6 +258,7 @@ function inventory(){
 			document.getElementsByClassName("item")[2].innerText = "Potato";
 		}
 		else {
+			document.getElementsByClassName("item")[2].innerText = "......";
 			document.getElementsByClassName("item")[2].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[2].style.borderColor = localStorage.Colour;
 		}
@@ -263,6 +266,7 @@ function inventory(){
 			document.getElementsByClassName("item")[3].innerText = "Key";
 		}
 		else {
+			document.getElementsByClassName("item")[3].innerText = "...";
 			document.getElementsByClassName("item")[3].style.color = localStorage.Background;
 			document.getElementsByClassName("item")[3].style.borderColor = localStorage.Colour;
 		}
