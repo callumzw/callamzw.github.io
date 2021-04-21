@@ -65,7 +65,7 @@ height:52px;
 .slider {
 	display:none;
 	position: absolute;
-	top:127px; left:13px;
+	top:127px; left:11px;
   -webkit-appearance: none;
   width: 150px;
   height: 15px;
@@ -118,7 +118,7 @@ height:52px;
     display: none;
     top:53px;
     position: absolute;
-    right: 2px;
+    right: 7px;
     min-width: 56px;
     z-index: 1;
 }
