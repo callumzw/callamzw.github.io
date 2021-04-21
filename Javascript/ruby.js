@@ -590,9 +590,14 @@ function LoadPage(){
 		case "3": pageThree(); break;
 		case "4": pageFour(); break;
 		case "5": pageFive(); break;
+		case "Chapter1": Chapter1(); break;
 		case "RoadPier": RoadPier(); break;
 		case "RoadManor": RoadManor(); break;
 		case "RoadTown": RoadTown(); break;
+		case "Pier": Pier(); break;
+		case "Manor": Manor(); break;
+		case "MuckyTankard": MuckyTankard(); break;
+		case "BloomBoom": BloomBoom(); break;
 		default: frontPage(); break;
 	}
 }
@@ -767,6 +772,27 @@ function Pier(){
 	localStorage.setItem("Page", "Pier");
 
 }
+function Manor(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = "The Manor is eerie. Wind blows through the buidling, creating unsurity of where the nosie is from. </br>" +
+		"You see pillars along the corridor, mostly bare except two. A simple vase sits upon one, and a sparkling necklace upon the other" ;
+	Interact();
+	document.getElementsByClassName('choice')[13].style.display = null;
+	document.getElementsByClassName('choice')[14].style.display = null;
+	document.getElementsByClassName('choice')[15].style.display = null;
+	document.getElementsByClassName('choice')[13].innerHTML = "Vase";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "InteractVase();");
+	document.getElementsByClassName('choice')[14].innerHTML = "Necklace";
+	document.getElementsByClassName('choice')[14].setAttribute("onclick", "InteractNecklace();");
+	document.getElementsByClassName('choice')[15].innerHTML = "Stairs";
+	document.getElementsByClassName('choice')[15].setAttribute("onclick", "Upstairs();");
+	document.getElementsByClassName('choice')[16].style.display = "none";
+	localStorage.setItem("Page", "Manor");
+
+}
 function Town(){
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
@@ -840,7 +866,7 @@ function InteractRoadTown(x){
 		case 1:
 			document.getElementById("mainText").innerHTML = "It's a dirt road.";
 			Next();
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town();");
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Town(); inventory();");
 			break;
 		case 2:
 			if (localStorage.Dirt == 0) {
