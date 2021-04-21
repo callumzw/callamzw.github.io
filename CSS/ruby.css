@@ -106,7 +106,7 @@ height:52px;
 #home:hover{transform: scale(1.1);}
 #bag{
     position: absolute;
-    right: 70px; top: 7px;
+    right: 70px; top: 10px;
     width:55px;
     height:47px;
 }
@@ -159,6 +159,7 @@ nav{text-align: center;}
 	margin: 20px;
 }
 .choice:hover{transform: scale(1.1)}
+
 
 #box { 
   width:945px;

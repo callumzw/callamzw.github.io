@@ -312,8 +312,169 @@ function dropdown(){
 	}
 
 }
-function back(){
-	window.history.back();
+
+function Next(){
+			var x;
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
+}
+function Choice(){
+	var x;
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
+}
+function Navigation(){
+	var x;
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
+}
+function Actions(){
+	var x;
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
+}
+
+function Interact(){
+	var x;
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
+}
+function ItemActions(){
+	var x;
+	x = document.getElementsByClassName('Navigation');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Next');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Actions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Choice');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('Interact');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	x = document.getElementsByClassName('ItemActions');
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = null;
+	}
 }
 
 function Continue(){
@@ -325,29 +486,24 @@ function Continue(){
 				document.getElementById('cover').innerHTML = "</br>";
 				document.getElementById('image').style.display = "none";
 				document.getElementById("mainText").innerHTML = "</br>";
-				document.getElementsByClassName('choice')[0].style.display = null;
-				document.getElementsByClassName('choice')[0].innerHTML = "Continue";
-				document.getElementsByClassName('choice')[1].style.display = null;
-				document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(0);");
-				document.getElementsByClassName('choice')[1].innerHTML = "New Game";
-				document.getElementsByClassName('choice')[1].setAttribute("onclick", "ConfirmNew();");
-				document.getElementsByClassName('choice')[2].style.display = "none";
-				document.getElementsByClassName('choice')[3].style.display = "none";
+				Choice();
+				document.getElementsByClassName('choice')[10].innerHTML = "Continue";
+				document.getElementsByClassName('choice')[10].setAttribute("onclick", "AudioSelect(0);");
+				document.getElementsByClassName('choice')[11].innerHTML = "New Game";
+				document.getElementsByClassName('choice')[11].setAttribute("onclick", "AudioSelect(1);");
 			}
 }
 function ConfirmNew(){
 	document.getElementById('heading').innerHTML = "";
-	document.getElementById('cover').innerHTML = " Are You Sure?";
+	document.getElementById('cover').innerHTML = "Are You Sure?";
 	document.getElementById('image').style.display = "none";
 	document.getElementById("mainText").innerHTML = "";
-	document.getElementsByClassName('choice')[0].style.display = null;
-	document.getElementsByClassName('choice')[0].innerHTML = "Yes";
-	document.getElementsByClassName('choice')[1].style.display = null;
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "AudioSelect(1);");
-	document.getElementsByClassName('choice')[1].innerHTML = "No";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "Continue();");
-	document.getElementsByClassName('choice')[2].style.display = "none";
-	document.getElementsByClassName('choice')[3].style.display = "none";
+	Choice();
+	document.getElementsByClassName('choice')[10].innerHTML = "Yes";
+	document.getElementsByClassName('choice')[10].setAttribute("onclick", "AudioSelect(1);");
+	document.getElementsByClassName('choice')[11].innerHTML = "No";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Continue();");
+
 
 }
 function AudioSelect(y){
@@ -355,22 +511,19 @@ function AudioSelect(y){
 	document.getElementById('cover').innerHTML = "</br>";
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "</br>";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Audio";
-	document.getElementsByClassName('choice')[1].style.display= null;
-	document.getElementsByClassName('choice')[1].innerHTML= "No Audio";
+	Choice();
+	document.getElementsByClassName('choice')[10].innerHTML= "Audio";
+	document.getElementsByClassName('choice')[11].innerHTML= "No Audio";
 	switch (y){
 		case 0:
-			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,0);");
-			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,0);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "start(1,0);");
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "start(0,0);");
 			break;
 		case 1:
-			document.getElementsByClassName('choice')[0].setAttribute("onclick", "start(1,1);");
-			document.getElementsByClassName('choice')[1].setAttribute("onclick", "start(0,1);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "start(1,1);");
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "start(0,1);");
 			break;
 	}
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
 }
 
 function start(x,y){
@@ -397,21 +550,6 @@ function start(x,y){
 		case 1: frontPage(); break;
 	}
 }
-function printActions(heading, num){
-	document.getElementById('heading').innerHTML = heading+"</br>";
-	document.getElementById('image').style.display= null;
-	document.getElementById('image').style.display= "none";
-	localStorage.setItem("Page", num);
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Look";
-	document.getElementsByClassName('choice')[1].style.display= null;
-	document.getElementsByClassName('choice')[1].innerHTML= "Walk";
-	document.getElementsByClassName('choice')[2].style.display= null;
-	document.getElementsByClassName('choice')[2].innerHTML= "Pick Up";
-	document.getElementsByClassName('choice')[3].style.display= null;
-	document.getElementsByClassName('choice')[3].innerHTML= "Use";
-
-}
 function nullAction()
 {
 	var num = Math.floor(Math.random()* 5)
@@ -424,17 +562,17 @@ function nullAction()
 }
 
 function LoadPage(){
-	var x = parseInt(localStorage.Page);
+	var x = localStorage.Page;
 	switch (x){
-		case 0: frontPage(); break;
-		case 1: pageOne(); break;
-		case 2: pageTwo(); break;
-		case 3: pageThree(); break;
-		case 4: pageFour(); break;
-		case 5: pageFive(); break;
-		case 6: pageSix(); break;
-		case 7: pageSeven(); break;
-		case 8: pageEight(); break;
+		case "0": frontPage(); break;
+		case "1": pageOne(); break;
+		case "2": pageTwo(); break;
+		case "3": pageThree(); break;
+		case "4": pageFour(); break;
+		case "5": pageFive(); break;
+		case "RoadPier": RoadPier(); break;
+		case "RoadManor": RoadManor(); break;
+		case "RoadTown": RoadTown(); break;
 		default: frontPage(); break;
 	}
 }
@@ -445,17 +583,10 @@ function frontPage(){
 	document.getElementById('cover').innerHTML = "<br/><br/> The Mystery <br/> of <br/> Baboon Island <br/>";
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Play";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageOne();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 0);
-	localStorage.Sword = 0;
-	localStorage.Gunpowder= 1;
-	localStorage.Potato = 0;
-	localStorage.Key= 0;
+	Next();
+	document.getElementsByClassName('choice')[12].innerHTML= "Play";
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageOne();");
+	localStorage.setItem("Page", "0");
 
 }
 
@@ -463,117 +594,133 @@ function pageOne(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "Welcome To The Blackwall Sailor! You have just departed Kingston in search for the wreckage of the HMS Ruby.  Your Captain, Benjamin Hornblower, stands proudly upon the upper deck next to the Pilot, with his Quartermaster and First Mate behind him.";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageTwo();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 1);
-	localStorage.Gunpowder= 0;
+	document.getElementById("mainText").innerHTML = "A young man walks onto the pier and see's a pot-bellied man fishing off the side, he approaches the man. </br>" +
+		'"Hi there! My name is Benjamin Hornblower and I want to be a pirate!".';
+	Next();
+	document.getElementsByClassName('choice')[12].innerHTML= "Next";
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageTwo();");
+
+	localStorage.setItem("Page", "1");
 }
 
 function pageTwo(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
+	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "The sea is calm and the breeze is warm, the Bos'n approaches you and puts his arm around you. He gives you a warm greeting and tells you to report to the Head Cook";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageThree();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 2);
+	document.getElementById("mainText").innerHTML = '"AWW DRATS!" </br> "Ya scared the fishies away ya landlubber". </br> "Well what ya ' + "wantin'" + ' Trumpetwailer?"';
+	Next();
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageThree();");
+	localStorage.setItem("Page", "2");
 }
 
 function pageThree(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
+	document.getElementById('heading').innerHTML = "Epilogue </br>";
+	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "You steady yourself and take in your surroundings, you wonder whether to explore first or meet with the Head Cook first";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Explore Quarterdeck";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSix();");
-	document.getElementsByClassName('choice')[1].style.display= null;
-	document.getElementsByClassName('choice')[1].innerHTML= "Explore Deck";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageFive();");
-	document.getElementsByClassName('choice')[2].style.display= null;
-	document.getElementsByClassName('choice')[2].innerHTML= "Explore Below Deck";
-	document.getElementsByClassName('choice')[2].setAttribute("onclick", "pageFour();");
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 3);
+	document.getElementById("mainText").innerHTML = "It's" +' Hornblower actually..." </br> "Benjamin Hornblower, but my friends call be Benji"';
+	Next();
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageFour();");
+	localStorage.setItem("Page", "3");
 }
 function pageFour(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
+	document.getElementById('heading').innerHTML = "Epilogue </br>";
+	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "You go below deck and find its as busy as the top deck but twice as cramped, the Head Cook pops his head from the lower level and calls you over";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageNine();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 4);
+	document.getElementById("mainText").innerHTML = '"Ah yes yes, my bad me lad" </br> "So ya want ta be a pirate then Horntooter" </br> 				' +
+		"*sigh* </br>" +
+		'"Well then ya better speak to the boys down at the Mucky Tankard"';
+	Next();
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "pageFive();");
+	localStorage.setItem("Page", "4");
 }
 function pageFive(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
+	document.getElementById('heading').innerHTML = "Epilogue </br>";
+	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "The top deck is busy with seamen moving supplies below and tightening ropes above";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 5);
+	document.getElementById("mainText").innerHTML = '"Thanks a bunch friend!" </br> You head off to the pier onto the dirt road';
+	Next();
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Chapter1();");
+	localStorage.setItem("Page", "5");
 }
 
-function pageSix(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
+function Chapter1(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = "<br/><br/> Chapter 1 <br/> Call Of A True Pirate <br/>";
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "The Quarterdeck is as busy as the top deck, but as you stand gazing the Bos'n spots you and shouts:</br> Oi boy didn I tell you to see the Cook?";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Run Below Deck";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageSeven();");
-	document.getElementsByClassName('choice')[1].style.display= null;
-	document.getElementsByClassName('choice')[1].innerHTML= "Rudely Brush off Bos'n";
-	document.getElementsByClassName('choice')[1].setAttribute("onclick", "pageEight();");
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 6);
+	document.getElementById("mainText").innerHTML = "";
+	Next();
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "RoadPier();");
+	localStorage.setItem("Page", "Chapter1");
 }
 
-function pageSeven(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
+function RoadPier(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "Sorry Sir, you say as you run down below";
-	document.getElementsByClassName('choice')[0].style.display= null;
-	document.getElementsByClassName('choice')[0].innerHTML= "Next";
-	document.getElementsByClassName('choice')[0].setAttribute("onclick", "pageFour();");
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 7);
-}
+	document.getElementById("mainText").innerHTML = '"Wait a minute? Where even is the Mucky Tankard?" </br></br> A dirt road lays before you. It bends left going West and bends right going East.';
+	Navigation();
+	document.getElementsByClassName('choice')[1].style.display = null;
+	document.getElementsByClassName('choice')[2].style.display = null;
+	document.getElementsByClassName('choice')[3].style.display = null;
+	document.getElementsByClassName('choice')[1].innerHTML= "West Road";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadManor();");
+	document.getElementsByClassName('choice')[2].innerHTML= "East Road";
+	document.getElementsByClassName('choice')[2].setAttribute("onclick", "RoadTown();");
+	document.getElementsByClassName('choice')[3].innerHTML= "Pier (South)";
+	document.getElementsByClassName('choice')[3].setAttribute("onclick", "Pier();");
+	document.getElementsByClassName('choice')[0].style.display= "none";
+	localStorage.setItem("Page", "RoadPier");
 
-function pageEight(){
-	document.getElementById('heading').innerHTML = "Chapter 1 </br>";
-	document.getElementById('image').style.display= null;
-	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "Awh fuck off pal, I'll get there when I get there </br> You focking what mate? </br>" +
-		" The Bos'n socks you in the face and you pass out, you wake up in the harbour with the ship away in the distant </br> This is the end of your adventure, my friend. ";
+}
+function RoadManor() {
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = 'You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island' +
+		'They are all missing. Still best not to go inside';
+	Navigation();
+	document.getElementsByClassName('choice')[0].style.display = null;
+	document.getElementsByClassName('choice')[2].style.display = null;
+	document.getElementsByClassName('choice')[0].innerHTML = "North Road </br>";
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "BlockSouth();");
+	document.getElementsByClassName('choice')[2].innerHTML = "East Road";
+	document.getElementsByClassName('choice')[2].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[1].style.display = "none";
+	document.getElementsByClassName('choice')[3].style.display = "none";
+	localStorage.setItem("Page", "RoadManor");
+}
+function RoadTown() {
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display = null;
+	document.getElementById('image').style.display = "none";
+	document.getElementById("mainText").innerHTML = "You come across an archway with 'Town of Hilt' scrawled across it with paint" ;
+	Navigation();
+	document.getElementsByClassName('choice')[2].style.display = null;
+	document.getElementsByClassName('choice')[1].style.display = null;
+	document.getElementsByClassName('choice')[0].innerHTML = "Town (East)";
+	document.getElementsByClassName('choice')[0].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[1].innerHTML = "Pier (West)";
+	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
 	document.getElementsByClassName('choice')[0].style.display = "none";
-	document.getElementsByClassName('choice')[1].style.display= "none";
-	document.getElementsByClassName('choice')[2].style.display= "none";
-	document.getElementsByClassName('choice')[3].style.display= "none";
-	localStorage.setItem("Page", 8);
+	document.getElementsByClassName('choice')[3].style.display = "none";
+	localStorage.setItem("Page", "RoadTown");
 }
+
+function Pier(){
+
+}
+function Town(){
+
+}
+
 
 	
 
