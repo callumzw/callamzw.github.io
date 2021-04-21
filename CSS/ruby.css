@@ -125,8 +125,8 @@ height:40px;
 #bag{
     position: absolute;
     left: 62px; top: 10px;
-    width:52px;
-    height:45px;
+    width:55px;
+    height:47px;
 }
 #bag:hover{	transform: scale(1.1);}
 
