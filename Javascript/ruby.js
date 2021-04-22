@@ -593,7 +593,6 @@ function LoadPage(){
 		case "Town": Town(); break;
 		case "Camp": Camp(1); break;
 		case "Beach": Beach(); break;
-		case "Fort": Fort(); break;
 		case "MuckyTankard": MuckyTankard(); break;
 		case "Kitchen": Kitchen(2); break;
 		case "BloomBoom": BloomBoom(); break;
@@ -718,31 +717,18 @@ function RoadManor() {
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
-	Navigation();
-	if (localStorage.Manor == 0) {
-		document.getElementById("mainText").innerHTML = "You see a pile of rubble that was the manor. There is an eerie silence in the the area";
-		document.getElementsByClassName('choice')[1].style.display = "none";
-	}
-	else if (localStorage.Fort == 0)
-	{
-		document.getElementsByClassName('choice')[1].style.display = null;
-		document.getElementById("mainText").innerHTML = "You see a dilapidated manor on a cliff edge. The cannonballs have stopped. It is quiet in the area now."
-		document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
-		document.getElementsByClassName('choice')[1].setAttribute("onclick", "Manor();");
-	}
-	else
-		{
-	document.getElementById("mainText").innerHTML = "You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island" +
+	document.getElementById("mainText").innerHTML = 'You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island' +
 		"They are all missing. </br> Probably best to stay away for now while they're firing at it";
-			document.getElementsByClassName('choice')[1].style.display = null;
-			document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
-			document.getElementsByClassName('choice')[1].setAttribute("onclick", "nullManor();");
-		}
+	Navigation();
 	document.getElementsByClassName('choice')[0].style.display = null;
 	document.getElementsByClassName('choice')[2].style.display = null;
 	document.getElementsByClassName('choice')[0].innerHTML = "North Road";
 	document.getElementsByClassName('choice')[0].setAttribute("onclick", "RoadBeach();");
-
+	document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
+	if (localStorage.Fort == 0) {
+		document.getElementsByClassName('choice')[1].setAttribute("onclick", "Manor();");
+	}
+	else {document.getElementsByClassName('choice')[1].setAttribute("onclick", "nullManor();"); }
 	document.getElementsByClassName('choice')[2].innerHTML = "East Road";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "RoadPier();");
 	document.getElementsByClassName('choice')[3].style.display = "none";
@@ -838,350 +824,24 @@ function Beach(){
 		document.getElementsByClassName('choice')[11].style.display = null;
 		document.getElementsByClassName('choice')[12].style.display = null;
 		document.getElementsByClassName('choice')[13].style.display = null;
-		document.getElementsByClassName('choice')[12].innerHTML = "Camp";
+		document.getElementsByClassName('choice')[11].innerHTML = "Camp";
 		if (localStorage.Vanguard == 1)
 		{
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Camp(9);");
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Camp(9);");
 		}
 		else if (localStorage.Vanguard == 1 && localStorage.Sword == 0){
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Camp(1);");
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Camp(1);");
 		}
 		else {
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Camp(0);");
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Camp(0);");
 		}
-		document.getElementsByClassName('choice')[13].innerHTML = "Jungle";
-		document.getElementsByClassName('choice')[13].setAttribute("onclick", "Jungle(0);");
-		document.getElementsByClassName('choice')[11].innerHTML = "Road";
-		document.getElementsByClassName('choice')[11].setAttribute("onclick", "RoadBeach();");
+		document.getElementsByClassName('choice')[12].innerHTML = "Jungle";
+		document.getElementsByClassName('choice')[12].setAttribute("onclick", "Jungle();");
+		document.getElementsByClassName('choice')[13].innerHTML = "Road";
+		document.getElementsByClassName('choice')[13].setAttribute("onclick", "RoadBeach();");
 		document.getElementsByClassName('choice')[14].style.display = "none";
-		localStorage.setItem("Page", "Beach");
+		localStorage.setItem("Page", "Town");
 		}
-function Jungle(x){
-	switch (x) {
-		case 0: Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Jungle(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Jungle(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Jungle(20);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Jungle(30);");
-			break;
-		case 1:
-			document.getElementById("mainText").innerHTML = "The Jungle is thick and full of vegetation.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Town();");
-			break;
-		case 2:
-			document.getElementById("mainText").innerHTML = "The path wanders to a small clearing, with thick vegetation still surrounding, unable to see through.</br> "+
-				"A cannon lays by the side of the clearing in the brush. Flowers grip round and partially encompass it. </br>" +
-				"You see the path continues on up a hill to the interior of the island.";
-			Interact();
-			document.getElementsByClassName('choice')[11].style.display = null;
-			document.getElementsByClassName('choice')[12].style.display = null;
-			document.getElementsByClassName('choice')[13].style.display = null;
-			document.getElementsByClassName('choice')[12].innerHTML = "Flowers";
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Jungle(3);");
-			document.getElementsByClassName('choice')[13].innerHTML = "Path";
-			document.getElementsByClassName('choice')[13].setAttribute("onclick", "Fort();");
-			document.getElementsByClassName('choice')[11].innerHTML = "Beach";
-			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Beach();");
-			document.getElementsByClassName('choice')[14].style.display = "none";
-			break;
-		case 3:
-			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "PotatoSack(4);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "PotatoSack(5);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "PotatoSack(6);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "PotatoSack(5);");
-			break;
-		case 4:
-			document.getElementById("mainText").innerHTML = "The flowers seemed to have filled the cannon and are sprouting outside of it now.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
-			break;
-		case 5:
-			document.getElementById("mainText").innerHTML = "They're just flowers.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
-			break;
-		case 6:
-			if (localStorage.Flower == 1)
-			{
-				document.getElementById("mainText").innerHTML = "You already have flowers.";
-			}
-			else {
-				document.getElementById("mainText").innerHTML = "The flowers seem nice, you pick a small bunch sprouting from the cannon.";
-			localStorage.Flower=1;
-			}
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
-			break;
-		default:
-			nullAction();
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
-			break;
-	}
-}
-function Fort() {
-	document.getElementById('heading').innerHTML = "";
-	document.getElementById('cover').innerHTML = null;
-	document.getElementById('image').style.display = null;
-	document.getElementById('image').style.display = "none";
-	if (localStorage.Fort == 1) {
-	document.getElementById("mainText").innerHTML = "You stumble upon a stronghold and in the courtyard pirates are loading and firing cannonballs in sequence." +
-		"Gunpowder and Cannonalls lay at the side behind them.</br>" +
-		"\"Hello?\"</br></br>" +
-		"They pay you no attention. Seems the cannons are too loud";
-	Interact();
-	document.getElementsByClassName('choice')[11].style.display = null;
-	document.getElementsByClassName('choice')[12].style.display = null;
-	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[14].style.display = null;
-	document.getElementsByClassName('choice')[14].innerHTML = "Pirates";
-	document.getElementsByClassName('choice')[14].setAttribute("onclick", "Gunners(0);");
-	document.getElementsByClassName('choice')[12].innerHTML = "Gunpowder";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "FortGunpowder(0);");
-	document.getElementsByClassName('choice')[13].innerHTML = "Cannonballs";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "FortCannonball(0);");
-	document.getElementsByClassName('choice')[11].innerHTML = "Path";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Jungle(2);");
-}
-else
-{
-	document.getElementById("mainText").innerHTML = "You stumble upon a stronghold and in the courtyard pirates are sitting around in silence." +
-		"They seem quite glum.</br></br>" +
-		"They pay you no attention. Seems they don't care anymore";
-	Interact();
-	document.getElementsByClassName('choice')[11].style.display = null;
-	document.getElementsByClassName('choice')[12].style.display = null;
-	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[13].innerHTML = "Pirates";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "GlumGunners(0);");
-	document.getElementsByClassName('choice')[12].innerHTML = "Cannonballs";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "FortCannonball(0);");
-	document.getElementsByClassName('choice')[11].innerHTML = "Path";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Jungle(2);");
-	document.getElementsByClassName('choice')[14].style.display = "none";
-}
-	localStorage.setItem("Page", "Fort");
-}
-function Gunners(x) {
-	switch (x) {
-		case 0:
-			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Gunners(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Gunners(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Gunners(20);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Gunners(30);");
-			break;
-		case 1:
-			document.getElementById("mainText").innerHTML = "They seem to have good team cohesion. Very much in unison.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 2:
-			document.getElementById("mainText").innerHTML = "You walk up to one of them and tap them on the shoulder. </br>" +
-				"They look you up and down.</br></br>" +
-				"\"Who are you?\"";
-			Dialog();
-			document.getElementsByClassName('choice')[15].style.display = null;
-			document.getElementsByClassName('choice')[15].innerHTML = "I want to be a pirate";
-			document.getElementsByClassName('choice')[15].setAttribute("onclick", "Gunners(3);");
-			document.getElementsByClassName('choice')[16].style.display = null;
-			document.getElementsByClassName('choice')[16].innerHTML = "Just a passerby";
-			document.getElementsByClassName('choice')[16].setAttribute("onclick", "Gunners(4);");
-			document.getElementsByClassName('choice')[17].style.display = "none";
-			document.getElementsByClassName('choice')[18].style.display = "none";
-			break;
-		case 3:
-			document.getElementById("mainText").innerHTML = "\"I'm Benjamin Hornblower, and I want to be pirate\".</br>" +
-				"\"Can I join your crew?\"";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Gunners(5);");
-			break;
-			case 4:
-			break;
-		case 5:
-			document.getElementById("mainText").innerHTML = "\"Oh well sure you ca...\"</br> " +
-				"\"Wait no... no... no you must... ummm...\"</br>" +
-				"\"You must get us Gunpowder!\"</br>" +
-				"\"Yes that's it, you must get us some gunpowder in order to join our crew!";
-			Dialog();
-			if (localStorage.Gunpowder == 1){
-				document.getElementsByClassName('choice')[15].style.display = null;
-				document.getElementsByClassName('choice')[15].innerHTML = "Here ya go";
-				document.getElementsByClassName('choice')[15].setAttribute("onclick", "Gunners(6);");
-				document.getElementsByClassName('choice')[16].style.display = null;
-				document.getElementsByClassName('choice')[16].innerHTML = "I will get some";
-				document.getElementsByClassName('choice')[16].setAttribute("onclick", "Gunners(7);");
-			}
-			else {
-				document.getElementsByClassName('choice')[15].style.display = null;
-				document.getElementsByClassName('choice')[15].innerHTML = "I will get some";
-				document.getElementsByClassName('choice')[15].setAttribute("onclick", "Gunners(7);");
-				document.getElementsByClassName('choice')[16].style.display = "none";
-				document.getElementsByClassName('choice')[17].style.display = "none";
-				document.getElementsByClassName('choice')[18].style.display = "none";
-			}
-			break;
-		case 6:
-			document.getElementById("mainText").innerHTML = "\"Oh, that was quick.\"</br> " +
-				"\"Welcome to the crew I guess\" </br></br>" +
-				"You are a Pirate";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			localStorage.Pirate = 1;
-			break;
-		case 7:
-		default:
-			nullAction();
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-	}
-}
-function GlumGunners(x) {
-	switch (x) {
-		case 0:
-			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "GlumGunners(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "GlumGunners(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "GlumGunners(20);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "GlumGunners(30);");
-			break;
-		case 1:
-			document.getElementById("mainText").innerHTML = "They seem unhappy right now.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 2:
-			document.getElementById("mainText").innerHTML = "\"Hey friends, what seems to be the issue?\"";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(3);");
-			break;
-		case 3:
-			document.getElementById("mainText").innerHTML = "\"We've only gone and lost the last of our gunpowder supplies.\" </br>" +
-				"\"We were so close to getting that shabby manor. A few more shots and I swear we would have had it.\"";
-			Dialog();
-			document.getElementsByClassName('choice')[15].style.display = null;
-			document.getElementsByClassName('choice')[15].innerHTML = "I have some if you need";
-			document.getElementsByClassName('choice')[15].setAttribute("onclick", "GlumGunners(4);");
-			document.getElementsByClassName('choice')[16].style.display = null;
-			document.getElementsByClassName('choice')[16].innerHTML = "I'm sorry to hear, best of luck.";
-			document.getElementsByClassName('choice')[16].setAttribute("onclick", "Fort();");
-			document.getElementsByClassName('choice')[17].style.display = "none";
-			document.getElementsByClassName('choice')[18].style.display = "none";
-			break;
-		case 4:
-			document.getElementById("mainText").innerHTML = "\"Really! Aw cheers matey\".</br>" +
-				"\"Say why don't you have a go at the cannon\"</br></br>" +
-				"You line up the cannon with the manor.";
-			Interact();
-			document.getElementsByClassName('choice')[11].style.display = null;
-			document.getElementsByClassName('choice')[11].innerHTML = "Fire";
-			document.getElementsByClassName('choice')[11].setAttribute("onclick", "GlumGunners(5);");
-			document.getElementsByClassName('choice')[12].style.display = "none";
-			document.getElementsByClassName('choice')[13].style.display = "none";
-			document.getElementsByClassName('choice')[14].style.display = "none";
-		case 5:
-			document.getElementById("mainText").innerHTML = "*BOOM* </br></br>" +
-				"The cannonball smashes right through the front door of the manor. The whole thing collapses into itself.</br>" +
-				"The pirate group cheers.</br>" +
-				"\"Say kid that was a crackshot, we've been going at that for days.\"</br>" +
-				"\"You want to join us?, we're heading out to sea in the morning and could really need you";
-			Next();
-			if (localStorage.Pirate == 0) {
-				document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(6);");
-			}
-			else
-			{
-				document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(7);");
-			}
-			break;
-		case 6:
-			document.getElementById("mainText").innerHTML = "\"That would be great\".</br></br>" +
-				"You are now a Pirate";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(3);");
-			break;
-		case 7:
-			document.getElementById("mainText").innerHTML = "\"Sorry, I have other commitments\"";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(3);");
-			break;
-		default:
-			nullAction();
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-	}
-}
-function FortGunpowder(x) {
-	switch (x) {
-		case 0:
-			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "FortGunpowder(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "FortGunpowder(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "FortGunpowder(3);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "FortGunpowder(40);");
-			break;
-		case 1:
-			document.getElementById("mainText").innerHTML = "It's a wooden box full of gunpowder. Only need a small amount to shoot a cannonball.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 2:
-			document.getElementById("mainText").innerHTML = "I would just get in the way.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 3:
-			document.getElementById("mainText").innerHTML = "You pick up the gunpowder box and leave the fort before anyone notices.</br></br>" +
-				"You have gunpowder.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
-			localStorage.Gunpowder = 1;
-			localStorage.Fort = 0;
-			break;
-		default:
-			nullAction();
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-	}
-}
-function FortCannonball(x) {
-	switch (x) {
-		case 0:
-			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "FortCannonaball(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "FortCannonaball(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "FortCannonaball(3);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "FortCannonaball(30);");
-			break;
-		case 1:
-			document.getElementById("mainText").innerHTML = "They're standard cannonballs.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 2:
-			document.getElementById("mainText").innerHTML = "I don't wanna get in the way and ruin their groove.";
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		case 3:
-			document.getElementById("mainText").innerHTML = "They seem to heavy to carry."
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-		default:
-			nullAction();
-			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
-			break;
-	}
-}
-
-
 
 function Camp(x) {
 	switch (x) {
@@ -1211,7 +871,7 @@ function Camp(x) {
 			document.getElementsByClassName('choice')[15].innerHTML = "I want to be a pirate";
 			document.getElementsByClassName('choice')[15].setAttribute("onclick", "Camp(3);");
 			document.getElementsByClassName('choice')[16].style.display = null;
-			document.getElementsByClassName('choice')[16].innerHTML = "Run";
+			document.getElementsByClassName('choice')[16].innerHTML = "Yikes";
 			document.getElementsByClassName('choice')[16].setAttribute("onclick", "Camp(4);");
 			document.getElementsByClassName('choice')[17].style.display = "none";
 			document.getElementsByClassName('choice')[18].style.display = "none";
@@ -1222,8 +882,7 @@ function Camp(x) {
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Camp(5);");
 			break;
 		case 4:
-			document.getElementById("mainText").innerHTML = "\"Yikes!\" </br></br> " +
-				"You run out the camp. </br>";
+			document.getElementById("mainText").innerHTML = "You run out the camp. </br>";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Beach();");
 			break;
@@ -1755,10 +1414,10 @@ function InteractLadyRed(x){
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "InteractLadyRed(4);");
 			break;
 		case 6:
-			document.getElementById("mainText").innerHTML = "Well have you got any money?.";
+			document.getElementById("mainText").innerHTML = "Well have you got any money? or items to barter with?.";
 			Choice();
 			if (localStorage.Flower == 1) {
-				document.getElementsByClassName('choice')[8].innerHTML = "No but I have this nice flowers";
+				document.getElementsByClassName('choice')[8].innerHTML = "Yes, I have this rare flower";
 				document.getElementsByClassName('choice')[8].setAttribute("onclick", "InteractLadyRed(8);");
 			}
 			else {document.getElementsByClassName('choice')[8].innerHTML = "No...";
@@ -1767,13 +1426,13 @@ function InteractLadyRed(x){
 			document.getElementsByClassName('choice')[9].style.display = "none";
 			break;
 		case 7:
-			document.getElementById("mainText").innerHTML = "Ah,Oh well. Make sure to come back when you do!.";
+			document.getElementById("mainText").innerHTML = "Oh well, make sure to come back when you do!.";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "BloomBoom();");
 			break;
 		case 8:
 			localStorage.Gunpowder = 1;
-			document.getElementById("mainText").innerHTML = "\"Oh those are beautiful aren't they, they will go nicely in the shop.\" </br>" +
+			document.getElementById("mainText").innerHTML = '"Oh that is so beautiful, that will do nicely". </br>' +
 				'"Hera ya go".</br></br>' +
 				"You have gunpowder.";
 			Next();
