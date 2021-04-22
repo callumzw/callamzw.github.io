@@ -1028,7 +1028,8 @@ function Gunners(x) {
 				"\"Welcome to the crew I guess\" </br></br>" +
 				"You are a Pirate";
 			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Gunners(5);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
+			localStorage.Pirate = 1;
 			break;
 		case 7:
 		default:
