@@ -1,7 +1,7 @@
 html{
 	cursor: crosshair;
 }
-body,h1,h2,h3,p { 
+body,h1,h2,h3,p,b,a {
   font-family: Georgia, serif;
   font-weight: normal;
   }
@@ -10,6 +10,7 @@ body,h1,h2,h3,p {
   h2{text-align:center;font-size: 35px;}
   p{font-size: 17px;}
   a:link {text-decoration: none;cursor:crosshair;}
+
 
 #monitor{
 position: absolute;

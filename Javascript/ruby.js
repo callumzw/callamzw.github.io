@@ -160,6 +160,14 @@ function setColour(){
 			x[i].style.color = localStorage.Colour;
 			}
 		}
+	if (document.getElementsByTagName("b")){
+		let root = document.documentElement;
+		root.style.setProperty('--slider-thumb', localStorage.Colour);
+		x = document.getElementsByTagName("b")
+		for (i = 0; i < x.length; i++) {
+			x[i].style.color = localStorage.Colour;
+		}
+	}
 
 		if (document.getElementsByClassName("slider")){
 			let root = document.documentElement;
@@ -254,7 +262,7 @@ function inventory(){
 				document.getElementsByClassName("item")[2].innerText = "_________";
 			}
 			if (localStorage.Flower == 1) {
-				document.getElementsByClassName("item")[3].innerText = "Flower";
+				document.getElementsByClassName("item")[3].innerText = "Flowers";
 			} else {
 				document.getElementsByClassName("item")[3].innerText = "_________";
 			}
@@ -776,20 +784,45 @@ function Pier(){
 	document.getElementById('image').style.display = "none";
 	document.getElementById("mainText").innerHTML = "The pier struts out unto the middle of the bay. </br>" +
 		"The water is a clear turquoise, with the fish seen clearly scavenging on the ocean floor.</br>" +
-		"The man you first spoke to is still fishing away. He is stood near a small hut." ;
+		"The man you first spoke to is still fishing away. He is stood at the end of the pier.</br>" +
+		"There is a large Galleon docked in the bay." ;
 	Interact();
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
-	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Man Fishing";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Town();");
-	document.getElementsByClassName('choice')[12].innerHTML = "Hut";
+	document.getElementsByClassName('choice')[11].innerHTML = "Galleon";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Galleon(0);");
+	document.getElementsByClassName('choice')[12].innerHTML = "Road";
 	document.getElementsByClassName('choice')[12].setAttribute("onclick", "RoadPier();");
-	document.getElementsByClassName('choice')[13].innerHTML = "Ocean";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "RoadPier();");
+	document.getElementsByClassName('choice')[13].style.display = "none";
 	document.getElementsByClassName('choice')[14].style.display = "none";
 	localStorage.setItem("Page", "Pier");
-
+}
+function Galleon(x){
+	switch (x) {
+		case 0:
+			Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Galleon(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Galleon(2);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Galleon(20);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Galleon(30);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "The Galleon is a light Black shade with large tattered sails.</br>" +
+				"It seems to be called the Grey Earl, or Grey Pearl. It's hard to tell at this distance ";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Pier();");
+			break;
+		case 3:
+			document.getElementById("mainText").innerHTML = "I can't swim that far.</br>" +
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Pier();");
+			break;
+		default:
+			nullAction();
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Pier();");
+			break;
+	}
 }
 function Manor() {
 	document.getElementById('heading').innerHTML = "";
@@ -803,11 +836,11 @@ function Manor() {
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
 	document.getElementsByClassName('choice')[11].innerHTML = "Vase";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "InteractVase();");
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Vase(x);");
 	document.getElementsByClassName('choice')[12].innerHTML = "Necklace";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "InteractNecklace();");
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Necklace(x);");
 	document.getElementsByClassName('choice')[13].innerHTML = "Stairs";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Upstairs();");
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Upstairs(x);");
 	document.getElementsByClassName('choice')[14].style.display = "none";
 	localStorage.setItem("Page", "Manor");
 }
@@ -873,10 +906,10 @@ function Jungle(x){
 			break;
 		case 3:
 			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "PotatoSack(4);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "PotatoSack(5);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "PotatoSack(6);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "PotatoSack(5);");
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Jungle(4);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Jungle(5);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Jungle(6);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Jungle(5);");
 			break;
 		case 4:
 			document.getElementById("mainText").innerHTML = "The flowers seemed to have filled the cannon and are sprouting outside of it now.";
@@ -894,7 +927,8 @@ function Jungle(x){
 				document.getElementById("mainText").innerHTML = "You already have flowers.";
 			}
 			else {
-				document.getElementById("mainText").innerHTML = "The flowers seem nice, you pick a small bunch sprouting from the cannon.";
+				document.getElementById("mainText").innerHTML = "The flowers seem nice, you pick a small bunch sprouting from the cannon.</br></br>" +
+					"You now have Flowers";
 			localStorage.Flower=1;
 			}
 			Next();
@@ -985,7 +1019,10 @@ function Gunners(x) {
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Gunners(5);");
 			break;
 			case 4:
-			break;
+				document.getElementById("mainText").innerHTML = "\"Oh I'm just an onlooker, love your work\". Please continue, don't let me distract you";
+				Next();
+				document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
+				break;
 		case 5:
 			document.getElementById("mainText").innerHTML = "\"Oh well sure you ca...\"</br> " +
 				"\"Wait no... no... no you must... ummm...\"</br>" +
@@ -1018,6 +1055,10 @@ function Gunners(x) {
 			localStorage.Pirate = 1;
 			break;
 		case 7:
+			document.getElementById("mainText").innerHTML = "\"Oh okay... I'll go grab some then!.\"";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
+			break;
 		default:
 			nullAction();
 			Next();
@@ -1139,10 +1180,10 @@ function FortCannonball(x) {
 	switch (x) {
 		case 0:
 			Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "FortCannonaball(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "FortCannonaball(2);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "FortCannonaball(3);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "FortCannonaball(30);");
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "FortCannonball(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "FortCannonball(2);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "FortCannonball(3);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "FortCannonball(30);");
 			break;
 		case 1:
 			document.getElementById("mainText").innerHTML = "They're standard cannonballs.";
@@ -1287,18 +1328,18 @@ function Town(){
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
-	document.getElementById("mainText").innerHTML = "You walk into a plaza, there's an empty fountain in the middle. On the other side of the fountain is a flower shop called Bloom & Boom" +
+	document.getElementById("mainText").innerHTML = "You walk into the center of town, there's an empty fountain in the middle. On the other side of the fountain is a flower shop called Bloom & Boom" +
 		"You hear muffled noise from a building to the left, it's the Mucky Tankard" ;
 	Interact();
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Mucky Tankard ";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "InteractMuckyTankard(0);");
+	document.getElementsByClassName('choice')[12].innerHTML = "Mucky Tankard ";
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "InteractMuckyTankard(0);");
 	document.getElementsByClassName('choice')[12].innerHTML = "Bloom & Boom";
 	document.getElementsByClassName('choice')[12].setAttribute("onclick", "InteractBloomBoom(0);");
-	document.getElementsByClassName('choice')[13].innerHTML = "Road";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "RoadTown();");
+	document.getElementsByClassName('choice')[11].innerHTML = "Road";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "RoadTown();");
 	document.getElementsByClassName('choice')[14].style.display = "none";
 	localStorage.setItem("Page", "Town");
 }
@@ -1691,39 +1732,39 @@ function BloomBoom(){
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Lady ";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "InteractLadyRed(0);");
+	document.getElementsByClassName('choice')[13].innerHTML = "Lady ";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "LadyRed(0);");
 	document.getElementsByClassName('choice')[12].innerHTML = "Flowers";
 	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Flowers();");
-	document.getElementsByClassName('choice')[13].innerHTML = "Plaza";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Town();");
+	document.getElementsByClassName('choice')[11].innerHTML = "Town Center";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Town();");
 	document.getElementsByClassName('choice')[14].style.display = "none";
 	localStorage.setItem("Page", "BloomBoom");
 }
-function InteractLadyRed(x){
+function LadyRed(x){
 	switch (x) {
 		case 0: Actions();
-			document.getElementsByClassName('choice')[4].setAttribute("onclick", "InteractLadyRed(1);");
-			document.getElementsByClassName('choice')[5].setAttribute("onclick", "InteractLadyRed(4);");
-			document.getElementsByClassName('choice')[6].setAttribute("onclick", "InteractLadyRed(2);");
-			document.getElementsByClassName('choice')[7].setAttribute("onclick", "InteractLadyRed(3);");
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "LadyRed(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "LadyRed(4);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "LadyRed(2);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "LadyRed(3);");
 			break;
 		case 1:
-			document.getElementById("mainText").innerHTML = "She is a small woman with red hair, wearing a white dress. Her attetntion is soley on the large fern";
+			document.getElementById("mainText").innerHTML = "She is a small woman with red hair, wearing a white summer dress. Her attention is soley on the large fern";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "BloomBoom();");
 			break;
 		case 4:
-			document.getElementById("mainText").innerHTML = "Oh hello, welcome to my store. How can I help you?";
+			document.getElementById("mainText").innerHTML = "Oh hello, welcome to my store. Everyone calls me Lady Red but you can just call me Red.</br>How can I help you?";
 			Dialog();
 			document.getElementsByClassName('choice')[15].style.display = null;
 			document.getElementsByClassName('choice')[16].style.display = null;
 			document.getElementsByClassName('choice')[17].style.display = null;
 			document.getElementsByClassName('choice')[15 ].innerHTML = "Why is it called Bloom & Boom? ";
-			document.getElementsByClassName('choice')[15].setAttribute("onclick", "InteractLadyRed(5);");
+			document.getElementsByClassName('choice')[15].setAttribute("onclick", "LadyRed(5);");
 			if (localStorage.Red == 1){
 				document.getElementsByClassName('choice')[16].innerHTML = "Can I have some gunpowder?";
-				document.getElementsByClassName('choice')[16].setAttribute("onclick", "InteractLadyRed(6);");
+				document.getElementsByClassName('choice')[16].setAttribute("onclick", "LadyRed(6);");
 				document.getElementsByClassName('choice')[17].innerHTML = "Oh nothing, just browsing ";
 				document.getElementsByClassName('choice')[17].setAttribute("onclick", "BloomBoom();");
 			}
@@ -1738,17 +1779,17 @@ function InteractLadyRed(x){
 			localStorage.Red = 1;
 			document.getElementById("mainText").innerHTML = "Why cus I sell Flowers and Gunpowder of course.";
 			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "InteractLadyRed(4);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "LadyRed(4);");
 			break;
 		case 6:
 			document.getElementById("mainText").innerHTML = "Well have you got any money?.";
 			Choice();
 			if (localStorage.Flower == 1) {
-				document.getElementsByClassName('choice')[8].innerHTML = "No but I have this nice flowers";
-				document.getElementsByClassName('choice')[8].setAttribute("onclick", "InteractLadyRed(8);");
+				document.getElementsByClassName('choice')[8].innerHTML = "No but I have these nice flowers";
+				document.getElementsByClassName('choice')[8].setAttribute("onclick", "LadyRed(8);");
 			}
 			else {document.getElementsByClassName('choice')[8].innerHTML = "No...";
-				document.getElementsByClassName('choice')[8].setAttribute("onclick", "InteractLadyRed(7);");
+				document.getElementsByClassName('choice')[8].setAttribute("onclick", "LadyRed(7);");
 			}
 			document.getElementsByClassName('choice')[9].style.display = "none";
 			break;
@@ -1759,6 +1800,7 @@ function InteractLadyRed(x){
 			break;
 		case 8:
 			localStorage.Gunpowder = 1;
+			localStorage.Flower = 0;
 			document.getElementById("mainText").innerHTML = "\"Oh those are beautiful aren't they, they will go nicely in the shop.\" </br>" +
 				'"Hera ya go".</br></br>' +
 				"You have gunpowder.";
