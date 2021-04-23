@@ -1598,8 +1598,6 @@ function Drunkard(x) {
 	}
 }
 function Kitchen(x) {
-	document.getElementById("audio").setAttribute('src', '../Audio/BoilingWater.mp3');
-	playMusic();
 			switch (x) {
 				case 0:
 					Actions();
@@ -1614,6 +1612,8 @@ function Kitchen(x) {
 					document.getElementsByClassName('choice')[10].setAttribute("onclick", "MuckyTankard();");
 					break;
 				case 2 :
+					document.getElementById("audio").setAttribute('src', '../Audio/BoilingWater.mp3');
+					playMusic();
 					document.getElementById('heading').innerHTML = "";
 					document.getElementById('cover').innerHTML = null;
 					document.getElementById('image').style.display = null;
