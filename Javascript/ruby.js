@@ -1465,7 +1465,8 @@ function Camp(x) {
 			break;
 		case 8:
 			document.getElementById("mainText").innerHTML = "\"Very well. Welcome to the team then\".</br>" +
-				"\"Make sure to practice on the dummies\".";
+				"\"Make sure to practice on those dummies. We set sail from the bay in the morning.\"</br></br>" +
+				"You are now a Pirate.";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Beach();");
 			localStorage.Pirate = 1;
