@@ -1789,6 +1789,7 @@ function  Cook(x) {
 				Next();
 			localStorage.Pirate = 1;
 			localStorage.Cook = 1;
+			localStorage.BoiledPotato = 0;
 			localStorage.Gunner = 0;
 			localStorage.Vanguard = 0;
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Cook(6);");
