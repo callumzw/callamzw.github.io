@@ -489,7 +489,7 @@ function Play(){
 		}
 
 function ConfirmNew(){
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = "Are You Sure?";
 	document.getElementById('image').style.display = "none";
 	document.getElementById("mainText").innerHTML = "";
@@ -501,8 +501,9 @@ function ConfirmNew(){
 
 }
 function AudioSelect(y){
+	document.getElementsByClassName('choice')[9].setAttribute("href", "#");
 	document.getElementById('heading').innerHTML = "</br>";
-	document.getElementById('cover').innerHTML = "</br>";
+	document.getElementById('cover').innerHTML = "";
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "</br>";
 	Choice();
@@ -576,7 +577,7 @@ function LoadPage(){
 		case "Town": Town(); break;
 		case "Beach": Beach(); break;
 		case "Camp": Camp(1); break;
-		case "Jungle": Jungle(); break;
+		case "Jungle": Jungle(2); break;
 		case "Fort": Fort(); break;
 		case "MuckyTankard": MuckyTankard(); break;
 		case "Kitchen": Kitchen(2); break;
@@ -649,7 +650,7 @@ function pageThree(){
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "It's" +' Hornblower actually..." </br> "Benjamin Hornblower, but my friends call be Benji"';
+	document.getElementById("mainText").innerHTML = "\"It's" +' Hornblower actually..." </br> "Benjamin Hornblower, but my friends call be Benji"';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageFour();");
 }
@@ -659,7 +660,7 @@ function pageFour(){
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = '"Ah yes yes, my bad me lad" </br> "So ya want ta be a pirate then Horntooter" </br> 				' +
-		"*sigh* </br>" +
+		"</br>" +
 		'"Well then ya better speak to the boys down at the Mucky Tankard"';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageFive();");
@@ -690,7 +691,7 @@ function Chapter1(){
 function RoadPier(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
 	document.getElementById('image').style.display= "none";
@@ -703,7 +704,7 @@ function RoadPier(){
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadManor();");
 	document.getElementsByClassName('choice')[2].innerHTML= "East Road";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "RoadTown();");
-	document.getElementsByClassName('choice')[3].innerHTML= "Pier (South)";
+	document.getElementsByClassName('choice')[3].innerHTML= "Pier";
 	document.getElementsByClassName('choice')[3].setAttribute("onclick", "Pier();");
 	document.getElementsByClassName('choice')[0].style.display= "none";
 	localStorage.setItem("Page", "RoadPier");
@@ -712,7 +713,7 @@ function RoadPier(){
 function RoadManor(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -725,15 +726,15 @@ function RoadManor(){
 	{
 		document.getElementsByClassName('choice')[1].style.display = null;
 		document.getElementById("mainText").innerHTML = "You see a dilapidated manor on a cliff edge. The cannonballs have stopped. It is quiet in the area now."
-		document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
+		document.getElementsByClassName('choice')[1].innerHTML = "Manor";
 		document.getElementsByClassName('choice')[1].setAttribute("onclick", "Manor();");
 	}
 	else
 		{
-	document.getElementById("mainText").innerHTML = "You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island" +
-		"They are all missing. </br> Probably best to stay away for now while they're firing at it";
+	document.getElementById("mainText").innerHTML = "You see a dilapidated manor on a cliff edge. Cannonballs are being fired at it from a fort on a mountain in the center of the island." +
+		"</br>They are all missing. </br> Probably best to stay away for now while they're firing at it.";
 			document.getElementsByClassName('choice')[1].style.display = null;
-			document.getElementsByClassName('choice')[1].innerHTML = "Manor (West)";
+			document.getElementsByClassName('choice')[1].innerHTML = "Manor";
 			document.getElementsByClassName('choice')[1].setAttribute("onclick", "nullManor();");
 		}
 	document.getElementsByClassName('choice')[0].style.display = null;
@@ -749,7 +750,7 @@ function RoadManor(){
 function RoadBeach() {
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -757,7 +758,7 @@ function RoadBeach() {
 	Navigation();
 	document.getElementsByClassName('choice')[2].style.display = null;
 	document.getElementsByClassName('choice')[3].style.display = null;
-	document.getElementsByClassName('choice')[2].innerHTML = "Beach Camp (East)";
+	document.getElementsByClassName('choice')[2].innerHTML = "Beach";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "Beach();");
 	document.getElementsByClassName('choice')[3].innerHTML = "South Road";
 	document.getElementsByClassName('choice')[3].setAttribute("onclick", "RoadManor();");
@@ -768,7 +769,7 @@ function RoadBeach() {
 function RoadTown() {
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -776,7 +777,7 @@ function RoadTown() {
 	Navigation();
 	document.getElementsByClassName('choice')[2].style.display = null;
 	document.getElementsByClassName('choice')[1].style.display = null;
-	document.getElementsByClassName('choice')[2].innerHTML = "Town (East)";
+	document.getElementsByClassName('choice')[2].innerHTML = "Town";
 	document.getElementsByClassName('choice')[2].setAttribute("onclick", "Town();");
 	document.getElementsByClassName('choice')[1].innerHTML = "West Road";
 	document.getElementsByClassName('choice')[1].setAttribute("onclick", "RoadPier();");
@@ -786,7 +787,7 @@ function RoadTown() {
 }
 
 function Pier(){
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -842,7 +843,7 @@ function Galleon(x){
 function Manor(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Wind.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -1018,7 +1019,7 @@ function nullManor()
 function Beach(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Beach.mp3');
 	playMusic();
-		document.getElementById('heading').innerHTML = "";
+		document.getElementById('heading').innerHTML = "</br>";
 		document.getElementById('cover').innerHTML = null;
 		document.getElementById('image').style.display = null;
 		document.getElementById('image').style.display = "none";
@@ -1049,7 +1050,8 @@ function Beach(){
 		}
 function Jungle(x){
 	switch (x) {
-		case 0: Actions();
+		case 0:
+			Actions();
 			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Jungle(1);");
 			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Jungle(2);");
 			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Jungle(20);");
@@ -1112,20 +1114,20 @@ function Jungle(x){
 		default:
 			nullAction();
 			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Jungle(2);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Beach();");
 			break;
 	}
 }
 function Fort() {
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
 	if (localStorage.Fort == 1) {
 	document.getElementById("mainText").innerHTML = "You stumble upon a stronghold and in the courtyard pirates are loading and firing cannonballs in sequence." +
-		"Gunpowder and Cannonalls lay at the side behind them.</br>" +
+		"</br>Gunpowder and Cannonballs lay at the side behind them.</br>" +
 		"\"Hello?\"</br></br>" +
 		"They pay you no attention. Seems the cannons are too loud";
 	Interact();
@@ -1388,8 +1390,6 @@ function FortCannonball(x) {
 	}
 }
 
-
-
 function Camp(x) {
 	switch (x) {
 		case 0:
@@ -1401,7 +1401,7 @@ function Camp(x) {
 			break;
 		case 1:
 			document.getElementById("mainText").innerHTML = "The camp is messy with tents open and a bonfire in the middle. </br>" +
-				"To the side priates are striking wooden dummys";
+				"To the side pirates are striking wooden dummys";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Beach();");
 			break;
@@ -1506,7 +1506,7 @@ function Camp(x) {
 function Town(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -1549,7 +1549,7 @@ function InteractMuckyTankard(x){
 function MuckyTankard(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Tavern.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -1908,7 +1908,7 @@ function InteractBloomBoom(x){
 function BloomBoom(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
@@ -2005,7 +2005,7 @@ function LadyRed(x){
 function Departure(){
 	document.getElementById("audio").setAttribute('src', '../Audio/Pier.mp3');
 	playMusic();
-	document.getElementById('heading').innerHTML = "";
+	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= "none";
 	document.getElementById("mainText").innerHTML = "You walk onto the pier.</br>" +
