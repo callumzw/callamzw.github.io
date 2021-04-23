@@ -1662,12 +1662,7 @@ function PotatoSack(x) {
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Kitchen(2);");
 			break;
 		case 3:
-			if (localStorage.Pirate = 1){
-				document.getElementById("mainText").innerHTML = "What do I need a potato for?.";
-				Next();
-				document.getElementsByClassName('choice')[10].setAttribute("onclick", "Kitchen(2);");
-			}
-			else if (localStorage.Potato = 1 || localStorage.BoiledPotato == 1){
+			if (localStorage.Potato = 1 || localStorage.BoiledPotato == 1){
 				document.getElementById("mainText").innerHTML = "You already have a potato.";
 				Next();
 				document.getElementsByClassName('choice')[10].setAttribute("onclick", "Kitchen(2);");
