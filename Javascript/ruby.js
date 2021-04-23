@@ -557,16 +557,6 @@ function nullAction()
 		case 4:document.getElementById("mainText").innerHTML = "That's not possible"; break;
 	}
 }
-function nullManor()
-{
-	var num = Math.floor(Math.random()* 5)
-	switch (num) {
-		case 0:document.getElementById("mainText").innerHTML = "Are you crazy? What if I get Hit!"; break;
-		case 1:document.getElementById("mainText").innerHTML = "Yeaaah.... that doesnt look safe to me"; break;
-		case 3:document.getElementById("mainText").innerHTML = "Why would I do that while they're firing at it?"; break;
-		case 4:document.getElementById("mainText").innerHTML = "I might be fast enough to dodge the cannonballs?.....actually probably not"; break;
-	}
-}
 
 function LoadPage(){
 	var x = localStorage.Page;
@@ -584,9 +574,11 @@ function LoadPage(){
 		case "RoadBeach": RoadBeach(); break;
 		case "Pier": Pier(); break;
 		case "Manor": Manor(); break;
+		case "Upstairs": Upstairs(2); break;
 		case "Town": Town(); break;
-		case "Camp": Camp(1); break;
 		case "Beach": Beach(); break;
+		case "Camp": Camp(1); break;
+		case "Jungle": Jungle(); break;
 		case "Fort": Fort(); break;
 		case "MuckyTankard": MuckyTankard(); break;
 		case "Kitchen": Kitchen(2); break;
@@ -829,20 +821,151 @@ function Manor() {
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
-	document.getElementById("mainText").innerHTML = "The Manor is eerie. Wind blows through the buidling, creating unsurity of where the nosie is from. </br>" +
-		"You see pillars along the corridor, mostly bare except two. A simple vase sits upon one, and a sparkling necklace upon the other";
+	document.getElementById("mainText").innerHTML = "The Manor is eerie. Wind blows through the buidling, whistling throughout the place. </br>" +
+		"A long corridor lays before you,with pillars along the sides , most are bare except two near the end. A bejeweled egg sits upon one, and a sparkling necklace upon the other.</br>" +
+		"Before them are some stairs";
 	Interact();
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Vase";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Vase(x);");
+	document.getElementsByClassName('choice')[11].innerHTML = "Egg";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Egg(0);");
 	document.getElementsByClassName('choice')[12].innerHTML = "Necklace";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Necklace(x);");
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Necklace(0);");
 	document.getElementsByClassName('choice')[13].innerHTML = "Stairs";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Upstairs(x);");
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Upstairs(0);");
 	document.getElementsByClassName('choice')[14].style.display = "none";
 	localStorage.setItem("Page", "Manor");
+}
+function Egg(x) {
+	switch (x) {
+		case 0:
+			Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Egg(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Egg(2);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Egg(2);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Egg(2);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "It's an egg made of gold covered in sapphires,rubys,emeralds,topaz,opal and pearl.";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Manor();");
+			break;
+		case 2:
+			document.getElementById("mainText").innerHTML = "As you approach the egg, you hear a click in the floorboard.</br>" +
+				"A springboard comes up and sends you out the front door";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+			break;
+	}
+}
+	function Necklace(x) {
+		switch (x) {
+			case 0:
+				Actions();
+				document.getElementsByClassName('choice')[4].setAttribute("onclick", "Necklace(1);");
+				document.getElementsByClassName('choice')[5].setAttribute("onclick", "Necklace(2);");
+				document.getElementsByClassName('choice')[6].setAttribute("onclick", "Necklace(2);");
+				document.getElementsByClassName('choice')[7].setAttribute("onclick", "Necklace(2);");
+				break;
+			case 1:
+				document.getElementById("mainText").innerHTML = "It's an elegant pendant necklace made of pure Spanish sliver, with an open locket containing a large diamond";
+				Next();
+				document.getElementsByClassName('choice')[10].setAttribute("onclick", "Manor();");
+				break;
+			case 2:
+				document.getElementById("mainText").innerHTML = "As you approach the necklace, you hear a click in the floorboard.</br>" +
+					"A springboard comes up and sends you out the front door";
+				Next();
+				document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+				break;
+		}
+	}
+function Upstairs(x) {
+	switch (x) {
+		case 0:
+			Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Upstairs(1);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Upstairs(2);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Upstairs(20);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Upstairs(20);");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "The stairs turn in right before going straight and up. </br>" +
+				"The carpet is maroon and has a very ugly design, much like bus seats. </br>" +
+				"It is totally covered in dust. It is somewhat hard to breath.";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Manor();");
+			break;
+		case 2:
+			document.getElementById("mainText").innerHTML = "You go up the creaking stairs, releasing dust up tinto the air. </br>" +
+				"You see another long corridor. </br>" +
+				"Near the stairs is a skeleton laying on the floor against the wall. A sword is stuck into the skeleton. ";
+			Interact();
+			document.getElementsByClassName('choice')[11].style.display = null;
+			document.getElementsByClassName('choice')[12].style.display = null;
+			document.getElementsByClassName('choice')[11].innerHTML = "Stairs";
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Manor();");
+			document.getElementsByClassName('choice')[12].innerHTML = "Sword";
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Stairs(3);");
+			document.getElementsByClassName('choice')[13].style.display = "none";
+			document.getElementsByClassName('choice')[14].style.display = "none";
+			localStorage.setItem("Page", "Upstairs");
+		case 3:
+			Actions();
+			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Upstairs(4);");
+			document.getElementsByClassName('choice')[5].setAttribute("onclick", "Upstairs(5);");
+			document.getElementsByClassName('choice')[6].setAttribute("onclick", "Upstairs(6);");
+			document.getElementsByClassName('choice')[7].setAttribute("onclick", "Upstairs(20);");
+			break;
+		case 4:
+			document.getElementById("mainText").innerHTML = "The sword is covered in cobwebs, but you see the hilt is covered in jewels.";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
+			break;
+		case 5:
+			document.getElementById("mainText").innerHTML = "No need to get closer, the skeleton still stinks.";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
+			break;
+		case 6:
+			document.getElementById("mainText").innerHTML = "You pull the sword out with a tug, it is light and well balanced.</br></br>" +
+				"You have a sword";
+			localStorage.Sword = 1;
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
+			break;
+		default:
+			nullAction();
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Manor();");
+			break;
+	}
+}
+function nullManor()
+{
+	var num = Math.floor(Math.random()* 5)
+	switch (num) {
+		case 0:document.getElementById("mainText").innerHTML = "Are you crazy? What if I get Hit!";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+			break;
+		case 1:
+			document.getElementById("mainText").innerHTML = "Yeaaah.... that doesnt look safe to me";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+			break;
+		case 3:
+			document.getElementById("mainText").innerHTML = "Why would I do that while they're firing at it?";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+			break;
+		case 4:
+			document.getElementById("mainText").innerHTML = "I might be fast enough to dodge the cannonballs?.....actually probably not";
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "RoadManor();");
+			break;
+	}
 }
 
 function Beach(){
@@ -903,6 +1026,7 @@ function Jungle(x){
 			document.getElementsByClassName('choice')[11].innerHTML = "Beach";
 			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Beach();");
 			document.getElementsByClassName('choice')[14].style.display = "none";
+			localStorage.Page = "Jungle";
 			break;
 		case 3:
 			Actions();
@@ -1109,6 +1233,8 @@ function GlumGunners(x) {
 			document.getElementsByClassName('choice')[12].style.display = "none";
 			document.getElementsByClassName('choice')[13].style.display = "none";
 			document.getElementsByClassName('choice')[14].style.display = "none";
+			localStorage.Fort = 1;
+
 		case 5:
 			document.getElementById("mainText").innerHTML = "*BOOM* </br></br>" +
 				"The cannonball smashes right through the front door of the manor. The whole thing collapses into itself.</br>" +
@@ -1127,13 +1253,14 @@ function GlumGunners(x) {
 		case 6:
 			document.getElementById("mainText").innerHTML = "\"That would be great\".</br></br>" +
 				"You are now a Pirate";
+			localStorage.Pirate = 1;
 			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(3);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort(3);");
 			break;
 		case 7:
 			document.getElementById("mainText").innerHTML = "\"Sorry, I have other commitments\"";
 			Next();
-			document.getElementsByClassName('choice')[10].setAttribute("onclick", "GlumGunners(3);");
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Fort();");
 			break;
 		default:
 			nullAction();
