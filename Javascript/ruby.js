@@ -1,6 +1,7 @@
 localStorage.Background;
 localStorage.Colour;
 localStorage.Page;
+localStorage.New;
 localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
@@ -474,22 +475,19 @@ function Dialog(){
 	}
 }
 
-function Continue(){
-			if (parseInt(localStorage.Page) == 0 || localStorage.Page == null){
-				AudioSelect(1);
-			}
-			else {
-				document.getElementById('heading').innerHTML = "</br>";
-				document.getElementById('cover').innerHTML = "</br>";
-				document.getElementById('image').style.display = "none";
-				document.getElementById("mainText").innerHTML = "</br>";
-				Choice();
-				document.getElementsByClassName('choice')[8].innerHTML = "Continue";
-				document.getElementsByClassName('choice')[8].setAttribute("onclick", "AudioSelect(0);");
-				document.getElementsByClassName('choice')[9].innerHTML = "New Game";
-				document.getElementsByClassName('choice')[9].setAttribute("onclick", "AudioSelect(1);");
-			}
+function NewGame(x){
+			localStorage.New = x;
 }
+function Play(){
+				if (localStorage.New == 1){
+					ConfirmNew();
+				}
+			else
+	{
+		AudioSelect(0);
+	}
+		}
+
 function ConfirmNew(){
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = "Are You Sure?";
@@ -499,8 +497,7 @@ function ConfirmNew(){
 	document.getElementsByClassName('choice')[8].innerHTML = "Yes";
 	document.getElementsByClassName('choice')[8].setAttribute("onclick", "AudioSelect(1);");
 	document.getElementsByClassName('choice')[9].innerHTML = "No";
-	document.getElementsByClassName('choice')[9].setAttribute("onclick", "Continue();");
-
+	document.getElementsByClassName('choice')[9].setAttribute("href", "../index.html");
 
 }
 function AudioSelect(y){
@@ -828,13 +825,15 @@ function Manor() {
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Egg";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Egg(0);");
-	document.getElementsByClassName('choice')[12].innerHTML = "Necklace";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Necklace(0);");
-	document.getElementsByClassName('choice')[13].innerHTML = "Stairs";
-	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Upstairs(0);");
-	document.getElementsByClassName('choice')[14].style.display = "none";
+	document.getElementsByClassName('choice')[11].style.display = null;
+	document.getElementsByClassName('choice')[11].innerHTML = "Exit";
+	document.getElementsByClassName('choice')[11].setAttribute("onclick", "RoadManor();");
+	document.getElementsByClassName('choice')[12].innerHTML = "Egg";
+	document.getElementsByClassName('choice')[12].setAttribute("onclick", "Egg(0);");
+	document.getElementsByClassName('choice')[13].innerHTML = "Necklace";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "Necklace(0);");
+	document.getElementsByClassName('choice')[14].innerHTML = "Stairs";
+	document.getElementsByClassName('choice')[14].setAttribute("onclick", "Upstairs(0);");
 	localStorage.setItem("Page", "Manor");
 }
 function Egg(x) {
@@ -907,10 +906,11 @@ function Upstairs(x) {
 			document.getElementsByClassName('choice')[11].innerHTML = "Stairs";
 			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Manor();");
 			document.getElementsByClassName('choice')[12].innerHTML = "Sword";
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Stairs(3);");
+			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Upstairs(3);");
 			document.getElementsByClassName('choice')[13].style.display = "none";
 			document.getElementsByClassName('choice')[14].style.display = "none";
 			localStorage.setItem("Page", "Upstairs");
+			break;
 		case 3:
 			Actions();
 			document.getElementsByClassName('choice')[4].setAttribute("onclick", "Upstairs(4);");
@@ -924,7 +924,7 @@ function Upstairs(x) {
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
 			break;
 		case 5:
-			document.getElementById("mainText").innerHTML = "No need to get closer, the skeleton still stinks.";
+			document.getElementById("mainText").innerHTML = "No need to get closer.";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
 			break;
@@ -1383,21 +1383,21 @@ function Camp(x) {
 			break;
 		case 5:
 			document.getElementById("mainText").innerHTML = "\"Really? Where's ye sword then?\"";
-			Interact();
-			document.getElementsByClassName('choice')[11].style.display = null;
+			Dialog();
+			document.getElementsByClassName('choice')[15].style.display = null;
 			if (localStorage.Sword == 1) {
-				document.getElementsByClassName('choice')[12].style.display = null
-				document.getElementsByClassName('choice')[11].innerHTML = "Here it is";
-				document.getElementsByClassName('choice')[11].setAttribute("onclick", "Camp(7);");
-				document.getElementsByClassName('choice')[12].innerHTML = "I don't have one.";
-				document.getElementsByClassName('choice')[12].setAttribute("onclick", "Camp(6);");
+				document.getElementsByClassName('choice')[16].style.display = null
+				document.getElementsByClassName('choice')[15].innerHTML = "Here it is";
+				document.getElementsByClassName('choice')[15].setAttribute("onclick", "Camp(7);");
+				document.getElementsByClassName('choice')[16].innerHTML = "I don't have one.";
+				document.getElementsByClassName('choice')[16].setAttribute("onclick", "Camp(6);");
 			} else {
-				document.getElementsByClassName('choice')[11].innerHTML = "I don't have one";
-				document.getElementsByClassName('choice')[11].setAttribute("onclick", "Camp(6);");
-				document.getElementsByClassName('choice')[12].style.display = "none";
+				document.getElementsByClassName('choice')[15].innerHTML = "I don't have one";
+				document.getElementsByClassName('choice')[15].setAttribute("onclick", "Camp(6);");
+				document.getElementsByClassName('choice')[16].style.display = "none";
 			}
-			document.getElementsByClassName('choice')[13].style.display = "none";
-			document.getElementsByClassName('choice')[14].style.display = "none";
+			document.getElementsByClassName('choice')[17].style.display = "none";
+			document.getElementsByClassName('choice')[18].style.display = "none";
 			break;
 		case 6:
 			document.getElementById("mainText").innerHTML = "\"Well go get one then!\"";
