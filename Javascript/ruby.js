@@ -1,7 +1,7 @@
 localStorage.Background;
 localStorage.Colour;
 localStorage.Page;
-localStorage.New;
+localStorage.New=0;
 localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
@@ -580,6 +580,8 @@ function LoadPage(){
 		case "MuckyTankard": MuckyTankard(); break;
 		case "Kitchen": Kitchen(2); break;
 		case "BloomBoom": BloomBoom(); break;
+		case "Departure": Departure(); break;
+		case "Chapter2": Chapter2(); break;
 		default: frontPage(); break;
 	}
 }
@@ -605,15 +607,22 @@ function frontPage(){
 	localStorage.Drunkard= 0;
 	localStorage.Red= 0;
 	localStorage.Fort= 1;
-
+	localStorage.Manor= 1;
+	localStorage.Pirate=0;
+	localStorage.Cook=0;
+	localStorage.Vanguard=0;
+	localStorage.Gunner=0;
 }
 
 function pageOne(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= "none";
-	document.getElementById("mainText").innerHTML = "A young man walks onto the pier and see's a pot-bellied man fishing off the side, he approaches the man. </br>" +
-		'"Hi there! My name is Benjamin Hornblower and I want to be a pirate!".';
+	document.getElementById("mainText").innerHTML = "A young man walks onto a pier.</br>" +
+		"It's the dead of night.</br>" +
+		"The air is  warm.</br>" +
+		"He see's a pot-bellied man fishing off the side, he approaches the man. </br></br>" +
+		"\"Hi there! My name is Benjamin Hornblower and I want to be a pirate!\".";
 	Next();
 	document.getElementsByClassName('choice')[10].innerHTML= "Next";
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageTwo();");
@@ -771,20 +780,25 @@ function Pier(){
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
-	document.getElementById("mainText").innerHTML = "The pier struts out unto the middle of the bay. </br>" +
-		"The water is a clear turquoise, with the fish seen clearly scavenging on the ocean floor.</br>" +
-		"The man you first spoke to is still fishing away. He is stood at the end of the pier.</br>" +
-		"There is a large Galleon docked in the bay." ;
-	Interact();
-	document.getElementsByClassName('choice')[11].style.display = null;
-	document.getElementsByClassName('choice')[12].style.display = null;
-	document.getElementsByClassName('choice')[11].innerHTML = "Galleon";
-	document.getElementsByClassName('choice')[11].setAttribute("onclick", "Galleon(0);");
-	document.getElementsByClassName('choice')[12].innerHTML = "Road";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "RoadPier();");
-	document.getElementsByClassName('choice')[13].style.display = "none";
-	document.getElementsByClassName('choice')[14].style.display = "none";
-	localStorage.setItem("Page", "Pier");
+	if (localStorage.Pirate == 1){
+		Departure();
+	}
+	else {
+		document.getElementById("mainText").innerHTML = "The pier struts out unto the middle of the bay. </br>" +
+			"The water is a clear turquoise, with the fish seen clearly scavenging on the ocean floor.</br>" +
+			"The man you first spoke to is still fishing away. He is stood at the end of the pier.</br>" +
+			"There is a large Galleon docked in the bay.";
+		Interact();
+		document.getElementsByClassName('choice')[11].style.display = null;
+		document.getElementsByClassName('choice')[12].style.display = null;
+		document.getElementsByClassName('choice')[11].innerHTML = "Galleon";
+		document.getElementsByClassName('choice')[11].setAttribute("onclick", "Galleon(0);");
+		document.getElementsByClassName('choice')[12].innerHTML = "Road";
+		document.getElementsByClassName('choice')[12].setAttribute("onclick", "RoadPier();");
+		document.getElementsByClassName('choice')[13].style.display = "none";
+		document.getElementsByClassName('choice')[14].style.display = "none";
+		localStorage.setItem("Page", "Pier");
+	}
 }
 function Galleon(x){
 	switch (x) {
@@ -897,16 +911,27 @@ function Upstairs(x) {
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Manor();");
 			break;
 		case 2:
-			document.getElementById("mainText").innerHTML = "You go up the creaking stairs, releasing dust up tinto the air. </br>" +
-				"You see another long corridor. </br>" +
-				"Near the stairs is a skeleton laying on the floor against the wall. A sword is stuck into the skeleton. ";
 			Interact();
+			if (localStorage.Sword == 0) {
+				document.getElementById("mainText").innerHTML = "You go up the creaking stairs, releasing dust up tinto the air. </br>" +
+					"You see another long corridor. </br>" +
+					"Near the stairs is a skeleton laying on the floor against the wall. A sword is stuck into the skeleton. ";
+
+				document.getElementsByClassName('choice')[12].innerHTML = "Sword";
+				document.getElementsByClassName('choice')[12].setAttribute("onclick", "Upstairs(3);");
+			}
+			else {
+				document.getElementById("mainText").innerHTML = "You go up the creaking stairs, releasing dust up tinto the air. </br>" +
+					"You see another long corridor. </br>" +
+					"Near the stairs is a skeleton laying on the floor against the wall.";
+
+				document.getElementsByClassName('choice')[12].innerHTML = "Skeleton";
+				document.getElementsByClassName('choice')[12].setAttribute("onclick", "Upstairs(7);");
+			}
+			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Manor();");
 			document.getElementsByClassName('choice')[11].style.display = null;
 			document.getElementsByClassName('choice')[12].style.display = null;
 			document.getElementsByClassName('choice')[11].innerHTML = "Stairs";
-			document.getElementsByClassName('choice')[11].setAttribute("onclick", "Manor();");
-			document.getElementsByClassName('choice')[12].innerHTML = "Sword";
-			document.getElementsByClassName('choice')[12].setAttribute("onclick", "Upstairs(3);");
 			document.getElementsByClassName('choice')[13].style.display = "none";
 			document.getElementsByClassName('choice')[14].style.display = "none";
 			localStorage.setItem("Page", "Upstairs");
@@ -932,6 +957,11 @@ function Upstairs(x) {
 			document.getElementById("mainText").innerHTML = "You pull the sword out with a tug, it is light and well balanced.</br></br>" +
 				"You have a sword";
 			localStorage.Sword = 1;
+			Next();
+			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
+			break;
+		case 7:
+			document.getElementById("mainText").innerHTML = "It's just a skeleton now.";
 			Next();
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Upstairs(2);");
 			break;
@@ -1940,6 +1970,30 @@ function LadyRed(x){
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "BloomBoom();");
 			break;
 	}
+}
+function Departure(){
+	document.getElementById('heading').innerHTML = "";
+	document.getElementById('cover').innerHTML = null;
+	document.getElementById('image').style.display= "none";
+	document.getElementById("mainText").innerHTML = "You walk onto the pier.</br>" +
+		"The fisherman seems to be gone, while others slowy appear, reparign rowboats.</br>" +
+		"The sun can be seen starting to rise in the far horizon.</br>" +
+		"The bay begins to be lit. </br></br>" +
+		"Adventure awaits.";
+	Next();
+	document.getElementsByClassName('choice')[10].innerHTML= "Next";
+	document.getElementsByClassName('choice')[10].setAttribute("onclick", "Chapter2();");
+	localStorage.setItem("Page", "Departure");
+}
+
+function Chapter2(){
+	document.getElementById('heading').innerHTML = "</br>";
+	document.getElementById('cover').innerHTML = "</br></br> To Be Continued";
+	document.getElementById('image').style.display= "none";
+	document.getElementById("mainText").innerHTML = "";
+	Next();
+	document.getElementsByClassName('choice')[10].style.display="none";
+	localStorage.setItem("Page", "Chapter2");
 }
 
 
