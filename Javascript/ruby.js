@@ -1,7 +1,7 @@
 localStorage.Background;
 localStorage.Colour;
 localStorage.Page;
-localStorage.New=0;
+localStorage.New;
 localStorage.Log;
 localStorage.volBar= 0;
 localStorage.drop = 0;
@@ -519,7 +519,11 @@ function AudioSelect(y){
 			break;
 	}
 }
-
+function playMusic(){
+	var m = document.getElementById("audio");
+	m.loop = true;
+	m.play();
+}
 function start(x,y){
 	var m = document.getElementById("audio");
 	var slider = document.getElementById("range");
@@ -535,6 +539,8 @@ function start(x,y){
 		case 1:
 		m.volume = 0.5;
 		slider.value = 50;
+		document.getElementById("music").style.display="block";
+		document.getElementById("mute").style.display="none";
 		break;
 	}
 
@@ -559,11 +565,6 @@ function LoadPage(){
 	var x = localStorage.Page;
 	switch (x){
 		case "0": frontPage(); break;
-		case "1": pageOne(); break;
-		case "2": pageTwo(); break;
-		case "3": pageThree(); break;
-		case "4": pageFour(); break;
-		case "5": pageFive(); break;
 		case "Chapter1": Chapter1(); break;
 		case "RoadPier": RoadPier(); break;
 		case "RoadManor": RoadManor(); break;
@@ -588,6 +589,8 @@ function LoadPage(){
 
 
 function frontPage(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Title.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = "<br/><br/> The Mystery <br/> of <br/> Baboon Island <br/>";
 	document.getElementById('image').style.display= "none";
@@ -612,12 +615,15 @@ function frontPage(){
 	localStorage.Cook=0;
 	localStorage.Vanguard=0;
 	localStorage.Gunner=0;
+	localStorage.New=0;
 }
 
 function pageOne(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= "none";
+	document.getElementById("audio").setAttribute('src', '../Audio/shore.mp3');
+	playMusic();
 	document.getElementById("mainText").innerHTML = "A young man walks onto a pier.</br>" +
 		"It's the dead of night.</br>" +
 		"The air is  warm.</br>" +
@@ -626,8 +632,6 @@ function pageOne(){
 	Next();
 	document.getElementsByClassName('choice')[10].innerHTML= "Next";
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageTwo();");
-
-	localStorage.setItem("Page", "1");
 }
 
 function pageTwo(){
@@ -638,7 +642,6 @@ function pageTwo(){
 	document.getElementById("mainText").innerHTML = '"AWW DRATS!" </br> "Ya scared the fishies away ya landlubber". </br> "Well what ya ' + "wantin'" + ' Trumpetwailer?"';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageThree();");
-	localStorage.setItem("Page", "2");
 }
 
 function pageThree(){
@@ -649,7 +652,6 @@ function pageThree(){
 	document.getElementById("mainText").innerHTML = "It's" +' Hornblower actually..." </br> "Benjamin Hornblower, but my friends call be Benji"';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageFour();");
-	localStorage.setItem("Page", "3");
 }
 function pageFour(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
@@ -661,7 +663,6 @@ function pageFour(){
 		'"Well then ya better speak to the boys down at the Mucky Tankard"';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "pageFive();");
-	localStorage.setItem("Page", "4");
 }
 function pageFive(){
 	document.getElementById('heading').innerHTML = "Epilogue </br>";
@@ -671,10 +672,11 @@ function pageFive(){
 	document.getElementById("mainText").innerHTML = '"Thanks a bunch friend!" </br> You head off to the pier onto the dirt road';
 	Next();
 	document.getElementsByClassName('choice')[10].setAttribute("onclick", "Chapter1();");
-	localStorage.setItem("Page", "5");
 }
 
 function Chapter1(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Title.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = "<br/><br/> Chapter 1 <br/> Call Of A True Pirate <br/>";
 	document.getElementById('image').style.display= null;
@@ -686,6 +688,8 @@ function Chapter1(){
 }
 
 function RoadPier(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= null;
@@ -705,7 +709,9 @@ function RoadPier(){
 	localStorage.setItem("Page", "RoadPier");
 
 }
-function RoadManor() {
+function RoadManor(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -741,6 +747,8 @@ function RoadManor() {
 	localStorage.setItem("Page", "RoadManor");
 }
 function RoadBeach() {
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -758,6 +766,8 @@ function RoadBeach() {
 	localStorage.setItem("Page", "RoadBeach");
 }
 function RoadTown() {
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -780,6 +790,8 @@ function Pier(){
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
+	document.getElementById("audio").setAttribute('src', '../Audio/shore.mp3');
+	playMusic();
 	if (localStorage.Pirate == 1){
 		Departure();
 	}
@@ -827,7 +839,9 @@ function Galleon(x){
 			break;
 	}
 }
-function Manor() {
+function Manor(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Wind.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -840,6 +854,7 @@ function Manor() {
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
 	document.getElementsByClassName('choice')[11].style.display = null;
+	document.getElementsByClassName('choice')[14].style.display = null;
 	document.getElementsByClassName('choice')[11].innerHTML = "Exit";
 	document.getElementsByClassName('choice')[11].setAttribute("onclick", "RoadManor();");
 	document.getElementsByClassName('choice')[12].innerHTML = "Egg";
@@ -895,6 +910,8 @@ function Egg(x) {
 		}
 	}
 function Upstairs(x) {
+	document.getElementById("audio").setAttribute('src', '../Audio/Wind.mp3');
+	playMusic();
 	switch (x) {
 		case 0:
 			Actions();
@@ -999,6 +1016,8 @@ function nullManor()
 }
 
 function Beach(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Beach.mp3');
+	playMusic();
 		document.getElementById('heading').innerHTML = "";
 		document.getElementById('cover').innerHTML = null;
 		document.getElementById('image').style.display = null;
@@ -1042,6 +1061,8 @@ function Jungle(x){
 			document.getElementsByClassName('choice')[10].setAttribute("onclick", "Town();");
 			break;
 		case 2:
+			document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+			playMusic();
 			document.getElementById("mainText").innerHTML = "The path wanders to a small clearing, with thick vegetation still surrounding, unable to see through.</br> "+
 				"A cannon lays by the side of the clearing in the brush. Flowers grip round and partially encompass it. </br>" +
 				"You see the path continues on up a hill to the interior of the island.";
@@ -1096,6 +1117,8 @@ function Jungle(x){
 	}
 }
 function Fort() {
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -1481,6 +1504,8 @@ function Camp(x) {
 }
 
 function Town(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -1491,8 +1516,8 @@ function Town(){
 	document.getElementsByClassName('choice')[11].style.display = null;
 	document.getElementsByClassName('choice')[12].style.display = null;
 	document.getElementsByClassName('choice')[13].style.display = null;
-	document.getElementsByClassName('choice')[12].innerHTML = "Mucky Tankard ";
-	document.getElementsByClassName('choice')[12].setAttribute("onclick", "InteractMuckyTankard(0);");
+	document.getElementsByClassName('choice')[13].innerHTML = "Mucky Tankard ";
+	document.getElementsByClassName('choice')[13].setAttribute("onclick", "InteractMuckyTankard(0);");
 	document.getElementsByClassName('choice')[12].innerHTML = "Bloom & Boom";
 	document.getElementsByClassName('choice')[12].setAttribute("onclick", "InteractBloomBoom(0);");
 	document.getElementsByClassName('choice')[11].innerHTML = "Road";
@@ -1522,12 +1547,14 @@ function InteractMuckyTankard(x){
 			}
 	}
 function MuckyTankard(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Tavern.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
 	document.getElementById('image').style.display = "none";
 	if (localStorage.Drunkard == 0) {
-		document.getElementById("mainText").innerHTML = "The place is full of life, everyone loud and with drinks in hand. </br>" +
+		document.getElementById("mainText").innerHTML = "The place is full of life, everyone with drinks in hand. </br>" +
 			'A drunk pirate turns to you and says, while slurring his words, "' + "You're"+ " a new face," + "ain't ya?" + '"';
 		Next();
 		document.getElementsByClassName('choice')[10].setAttribute("onclick", "Drunkard(0);");
@@ -1570,6 +1597,8 @@ function Drunkard(x) {
 	}
 }
 function Kitchen(x) {
+	document.getElementById("audio").setAttribute('src', '../Audio/BoilingWater.mp3');
+	playMusic();
 			switch (x) {
 				case 0:
 					Actions();
@@ -1877,6 +1906,8 @@ function InteractBloomBoom(x){
 	}
 }
 function BloomBoom(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Night.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display = null;
@@ -1972,6 +2003,8 @@ function LadyRed(x){
 	}
 }
 function Departure(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Pier.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "";
 	document.getElementById('cover').innerHTML = null;
 	document.getElementById('image').style.display= "none";
@@ -1987,6 +2020,8 @@ function Departure(){
 }
 
 function Chapter2(){
+	document.getElementById("audio").setAttribute('src', '../Audio/Title.mp3');
+	playMusic();
 	document.getElementById('heading').innerHTML = "</br>";
 	document.getElementById('cover').innerHTML = "</br></br> To Be Continued";
 	document.getElementById('image').style.display= "none";
